@@ -16,7 +16,7 @@ if (process.env.NODE_ENV == "production") {
   app.get("/*", function (request, response) {
     response.sendFile(path.join(__dirname, "build", "index.html"));
   });
-// }
+}
 
 // Start the web server listening on the provided port.
 app.listen(PORT, () => {
