@@ -1,3 +1,4 @@
+
 \c eas_e_mart;
 
 DELETE FROM users;
@@ -25,3 +26,4 @@ VALUES
 //a.1stdibscdn.com/archivesE/1stdibs/090412_AA/aa_Faultline_PM/24/DSCN9263.jpg'),
 (2,2, '50 shades of grey','great book to read','now a major motion picture', '$50','new',5,'https:
 //voolas.com/wp-content/uploads/2016/07/501.jpg');
+

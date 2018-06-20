@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS eas_e_mart;
 CREATE DATABASE eas_e_mart;
 
@@ -36,3 +37,4 @@ CREATE table items (
   condition VARCHAR(10),
   quantity INTEGER,
 );
+

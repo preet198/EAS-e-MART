@@ -1,11 +1,14 @@
 const express = require('express');
 const path = require('path');
+const bcrypt = require('bcrypt');
 // Create a new Express application (web server)
 const app = express();
 
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;
+
+app.use('/static', express.static('build/static'));
 
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
