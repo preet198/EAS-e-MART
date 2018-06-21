@@ -3,7 +3,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const User = require('./models/User');
+const User = require('./Models/User');
 // Create a new Express application (web server)
 const app = express();
 
