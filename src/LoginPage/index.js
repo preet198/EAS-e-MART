@@ -32,7 +32,7 @@ class LoginPage extends Component {
       );
     }
     return (
-      
+      <h1>Hi</h1>
     )
   };
 };
