@@ -1,9 +1,44 @@
 import React, { Component } from "react";
 import "./style.css";
+import Homepage from "../Homepage";
+import Login from "../Login";
+import Register from "../Register";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userLoggedIn: false
+    }
+    this.updateUserLoggedIn = this.updateUserLoggedIn.bind(this);
+  }
+
+  updateUserLoggedIn(user) {
+    this.setState({
+      userLoggedIn: true,
+      userId: user.id
+    });
+  }
+
   render() {
-    return <div className="App">Hello World</div>;
+    if (!this.state.userLoggedIn) {
+      return (
+        <div className="App">
+          <h1>EAS-E-MART</h1>
+          <Login onUserLoggedIn={this.updateUserLoggedIn} />
+          <Register onUserLoggedIn={this.updateUserLoggedIn} />
+        </div>
+      );
+    }
+    return (
+      <Router>
+        <div className="App">
+          <h1>EAS-E-MART</h1>
+          <Route path="/" component={Homepage} />
+        </div>
+      </Router>
+    );
   }
 }
 
