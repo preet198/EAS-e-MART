@@ -7,6 +7,13 @@ class Register extends Component {
     this.state = {
       username: '',
       password: '',
+      phone_number: '',
+      email: '',
+      location: '',
+      first_name: '',
+      last_name: '',
+      latitude: '',
+      longitude: ''
     }
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -24,7 +31,14 @@ class Register extends Component {
     evt.preventDefault();
     const newUser = {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
+      phone_number: this.state.phone_number,
+      email: this.state.email,
+      location: this.state.location,
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      latitude: this.state.latitude,
+      longitude: this.state.longitude
     }
     fetch('/register', {
 
@@ -51,10 +65,13 @@ class Register extends Component {
           <h2>Register</h2>
           <p>Username <input type="text" name="username" value={this.state.username} /></p>
           <p>Password <input type="text" name="password" value={this.state.password} /></p>
-          <p>Username <input type="text" name="username" value={this.state.username} /></p>
-          <p>Password <input type="text" name="password" value={this.state.password} /></p>
-          <p>Username <input type="text" name="username" value={this.state.username} /></p>
-          <p>Password <input type="text" name="password" value={this.state.password} /></p>
+          <p>Phone Number <input type="text" name="phone_number" value={this.state.phone_number} /></p>
+          <p>Email <input type="text" name="email" value={this.state.email} /></p>
+          <p>Location <input type="text" name="location" value={this.state.location} /></p>
+          <p>First Name <input type="text" name="first_name" value={this.state.first_name} /></p>
+          <p>Last name <input type="text" name="last_name" value={this.state.last_name} /></p>
+          <p>Latitude <input type="text" name="latitude" value={this.state.latitude} /></p>
+          <p>Longitude <input type="text" name="longitude" value={this.state.longitude} /></p>
           <p><input type="submit" value="submit" /></p>
         </form>
       </div>

@@ -23,6 +23,13 @@ app.post("/register", (request, response) => {
       const newUser = {
         username: request.body.username,
         password_digest: hash,
+        phone_number: request.body.phone_number,
+        email: request.body.email,
+        location: request.body.location,
+        first_name: request.body.first_name,
+        last_name: request.body.last_name,
+        latitude: request.body.latitude,
+        longitude: request.body.longitude
       };
 
       return User.create(newUser);

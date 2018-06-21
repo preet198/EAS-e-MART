@@ -8,13 +8,13 @@ User.findByUsername = username => {
 
 User.create = (newUser) =>
   db.one(
-    `INSERT INTO users (username, password_digest)
-    VALUES ($<username>, $<password_digest>) RETURNING *`, newUser
+    `INSERT INTO users
+    (username, password_digest, phone_number, email,
+       location, first_name, last_name, latitude, longitude)
+    VALUES
+    ($<username>, $<password_digest>, $<phone_number>,
+      $<email>, $<location>, $<first_name>, $<last_name>, $<latitude>, $<longitude>) RETURNING *`, newUser
   );
-
-// Users.create = newUser => {
-//   return db.one("INSERT INTO users (username, password_digest, phone_number, email, location, first_name, last_name, latitude, longitude) VALUES (${username}, ${password_digest}, ${phone_number}, ${email}, ${location}, ${first_name}, ${last_name}, ${latitude}, ${longitude}) RETURNING *", newUser);
-// };
 
 // Users.update = updatedUser => {
 //   return db.none("UPDATE users SET username = ${username}, password_digest = ${password_digest}, phone_number = ${phone_number}, email = ${email}, location = ${location}, first_name = ${first_name}, last_name = ${last_name}, latitude = ${latitude}, longitude = ${longitude} WHERE username = ${username}", updatedUser);
