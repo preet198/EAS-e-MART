@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const Items = require('./Models/Items');
-const Categories = require('./Models/Categories');
-const User = require('./Models/User');
+const Items = require('./models/Item');
+const Categories = require('./models/Category');
+const User = require('./models/User');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 

@@ -15,7 +15,8 @@ INSERT INTO users
 (username, password_digest, phone_number, email, location, first_name, last_name, latitude, longitude)
 VALUES
 ('test','password','1234567','test@ga.co','nyc','john','doe',40.758850,-73.985142),
-('test1','password1','2345678','test1@ga.co','boston','jone','doe',48.860446,2.344790);
+('test1','password1','2345678','test1@ga.co','boston','jone','doe',48.860446,2.344790),
+('asdf','$2b$12$pIHAW4LngwWeaWoqCqcTpuFBFiSCNZ4dCGhTSpQA2Ji0lXPiasedK','234','asdf','asf','asfd','af',123.0,234.0);
 
 
 INSERT INTO items
