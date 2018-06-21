@@ -33,10 +33,10 @@ CREATE TABLE items (
   id SERIAL PRIMARY KEY,
   user_name_id INTEGER REFERENCES users(id),
   category_id INTEGER REFERENCES categories(id),
-  name VARCHAR (50),
-  description TEXT,
-  price DECIMAL,
-  condition VARCHAR(50),
-  quantity INTEGER,
-  img_url TEXT
+  name VARCHAR (50) NOT NULL,
+  description TEXT NOT NULL,
+  price DECIMAL NOT NULL,
+  condition VARCHAR(50) NOT NULL,
+  quantity INTEGER NOT NULL,
+  img_url TEXT NOT NULL
 );
