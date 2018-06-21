@@ -3,9 +3,68 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const Items = require('./Models/Items');
 const Categories = require('./Models/Categories');
-const Users = require('./Models/Users');
+const User = require('./Models/User');
+const session = require('express-session');
+const bodyParser = require('body-parser');
+
 // Create a new Express application (web server)
 const app = express();
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(bodyParser.json());
+
+app.post("/register", (request, response) => {
+  const password = request.body.password;
+  const saltRounds = 12;
+  bcrypt.hash(password, saltRounds)
+    .then(hash => {
+      const newUser = {
+        username: request.body.username,
+        password_digest: hash,
+        phone_number: request.body.phone_number,
+        email: request.body.email,
+        location: request.body.location,
+        first_name: request.body.first_name,
+        last_name: request.body.last_name,
+        latitude: request.body.latitude,
+        longitude: request.body.longitude
+      };
+
+      return User.create(newUser);
+    })
+    .then(user => {
+      request.session.loggedIn = true;
+      request.session.userId = user.id;
+      response.json({ user });
+    });
+});
+
+app.post("/login", (request, response) => {
+  User.findByUsername(request.body.username).then(user => {
+    return bcrypt
+      .compare(request.body.password, user.password_digest)
+      .then(isPasswordCorrect => {
+        if (isPasswordCorrect) {
+          request.session.loggedIn = true;
+          request.session.userId = user.id;
+          return response.json({
+            loggedIn: true,
+            user: { user }
+          })
+        } else {
+          response.json({
+            loggedIn: false,
+            user: null,
+          })
+        }
+      });
+  });
+});
 
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
