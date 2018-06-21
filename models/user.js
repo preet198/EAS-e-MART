@@ -1,5 +1,5 @@
 const db = require('../database/connection');
-
+// console.log('celeste was here')
 const User = {};
 
 User.findByUsername = username => {
