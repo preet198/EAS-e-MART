@@ -1,10 +1,6 @@
-const db = require("../db/connection");
+const db = require("../database/connection");
 
 const Users = {};
-
-Users.all = () => {
-  return db.any('SELECT * FROM users');
-};
 
 Users.find = id => {
   return db.one("SELECT * FROM users WHERE id = ${id} ORDER BY ID ASC", { id: id });
