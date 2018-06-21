@@ -1,5 +1,5 @@
-const db = require("../db/connection");
-
+const db = require("../database/connection");
+// console.log('here')
 const Items = {};
 
 Items.all = () => {
