@@ -18,8 +18,8 @@ monitor.attach(initOptions, ["query", "error"]);
 
 // Import pg-promise and initialize the library with an empty object.
 const pgp = require("pg-promise")(initOptions);
-
-const databaseName = "";
+//change Database name to your database
+const databaseName = "eas_e_mart";
 
 let connectionConfig;
 
@@ -31,11 +31,7 @@ if (process.env.NODE_ENV === "development" || !process.env.NODE_ENV) {
   connectionConfig = process.env.DATABASE_URL;
 }
 
-// console.log(connectionConfig);
-
 // Creating a new database connection with the provided configuration.
 const db = pgp(connectionConfig);
 
 module.exports = db;
-
-
