@@ -34,6 +34,28 @@ app.post("/register", (request, response) => {
     });
 });
 
+app.post("/login", (request, response) => {
+  User.findByUsername(request.body.username).then(user => {
+    return bcrypt
+      .compare(request.body.password, user.password_digest)
+      .then(isPasswordCorrect => {
+        if (isPasswordCorrect) {
+          request.session.loggedIn = true;
+          request.session.userId = user.id;
+          return response.json({
+            loggedIn: true,
+            user: { user }
+          })
+        } else {
+          response.json({
+            loggedIn: false,
+            user: null,
+          })
+        }
+      });
+  });
+});
+
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;

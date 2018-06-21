@@ -48,7 +48,7 @@ class Register extends Component {
     return (
       <div className="Register">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-          <h2>Not a member? Register</h2>
+          <h2>Register</h2>
           <p>Username <input type="text" name="username" value={this.state.username} /></p>
           <p>Password <input type="text" name="password" value={this.state.password} /></p>
           <p><input type="submit" value="submit" /></p>

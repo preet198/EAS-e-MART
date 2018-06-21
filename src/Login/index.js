@@ -47,7 +47,7 @@ class Login extends Component {
     return (
       <div className="Login">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-          <h2>Already a member? Login</h2>
+          <h2>Login</h2>
           <p>Username <input type="text" name="username" value={this.state.username} /></p>
           <p>Password <input type="text" name="password" value={this.state.password} /></p>
           <p><input type="submit" value="submit" /></p>
