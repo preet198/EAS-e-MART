@@ -51,6 +51,10 @@ class Register extends Component {
           <h2>Register</h2>
           <p>Username <input type="text" name="username" value={this.state.username} /></p>
           <p>Password <input type="text" name="password" value={this.state.password} /></p>
+          <p>Username <input type="text" name="username" value={this.state.username} /></p>
+          <p>Password <input type="text" name="password" value={this.state.password} /></p>
+          <p>Username <input type="text" name="username" value={this.state.username} /></p>
+          <p>Password <input type="text" name="password" value={this.state.password} /></p>
           <p><input type="submit" value="submit" /></p>
         </form>
       </div>

@@ -14,13 +14,13 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL unique,
   password_digest VARCHAR NOT NULL,
-  phone_number VARCHAR(10),
-  email TEXT,
-  location TEXT,
-  first_name TEXT,
-  last_name TEXT,
-  latitude DECIMAL,
-  longitude DECIMAL
+  phone_number VARCHAR(10) NOT NULL,
+  email TEXT NOT NULL,
+  location TEXT NOT NULL,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  latitude DECIMAL NOT NULL,
+  longitude DECIMAL NOT NULL
 );
 
 CREATE TABLE categories (
@@ -35,8 +35,8 @@ CREATE TABLE items (
   category_id INTEGER REFERENCES categories(id),
   name VARCHAR (50),
   description TEXT,
-  price VARCHAR (20),
-  condition VARCHAR(10),
+  price DECIMAL,
+  condition VARCHAR(50),
   quantity INTEGER,
   img_url TEXT
 );
