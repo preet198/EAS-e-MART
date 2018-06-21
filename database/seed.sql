@@ -9,8 +9,7 @@ INSERT INTO categories
 (name, img_url)
 VALUES
 ('furniture', 'https://classroomclipart.com/images/gallery/Clipart/Furniture/dining-table-chairs-furniture-clipart.jpg'),
-('books', 'https:
-//content.mycutegraphics.com/graphics/book/stack-of-books-clipart-book-clip-art.png');
+('books', 'https://content.mycutegraphics.com/graphics/book/stack-of-books-clipart-book-clip-art.png');
 
 INSERT INTO users
 (username, password_digest, phone_number, email, location, first_name, last_name, latitude, longitude)

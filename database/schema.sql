@@ -2,7 +2,7 @@
 DROP DATABASE IF EXISTS eas_e_mart;
 CREATE DATABASE eas_e_mart;
 
-\c eas_e_mart;
+-- \c eas_e_mart;
 
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
@@ -15,8 +15,8 @@ CREATE TABLE users (
   username TEXT NOT NULL unique,
   password_digest VARCHAR NOT NULL,
   phone_number VARCHAR(10),
-  email TEXT NOT NULL,
-  location TEXT NOT NULL,
+  email TEXT,
+  location TEXT,
   first_name TEXT,
   last_name TEXT,
   latitude DECIMAL,
