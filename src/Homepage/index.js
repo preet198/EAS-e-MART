@@ -15,7 +15,7 @@ class HomePage extends Component {
         })} */}
           <div className="container">
             <div className="grid">
-            <h2>Elyas</h2>
+            <h2>Kobe</h2>
             <div className="toys">toys
             <img src="http://icons.iconarchive.com/icons/icons8/ios7/256/Baby-Teddybear-icon.png"/>
             </div>
