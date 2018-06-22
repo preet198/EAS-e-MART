@@ -87,6 +87,18 @@ app.get('/items/:id.json', (request, response) => {
     });
 });
 
+// app.get('/items/:id.json', (request, response) => {
+//   Items.find(request.params.id)
+//     .then(data => {
+//       Categories.find(category_id).then(category => {
+//         const dataForTemplate = {};
+//         dataForTemplate['item'] = item;
+//         dataForTemplate['category'] = category;
+//         response.json(dataTemplate);
+//       });
+//     });
+// });
+
 //Categories server calls
 app.get('/categories.json', (request, response) => {
   Categories.all().then(categoriesData => {

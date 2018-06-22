@@ -6,7 +6,7 @@ Items.all = () => {
 };
 
 Items.find = id => {
-  return db.one("SELECT * FROM items WHERE id = ${id}", { id: id });
+  return db.one("SELECT * FROM items WHERE id = ${id} ORDER BY ID ASC", { id: id });
 };
 
 Items.create = newItem => {

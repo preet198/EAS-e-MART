@@ -19,9 +19,8 @@ class ItemsPage extends Component {
   }
 
   componentDidMount() {
-    let id = this.props.match.params.id;
+    let id = Number(this.props.match.params.id);
     console.log(id);
-
     fetch(`/items/${id}.json`)
       .then(response => response.json())
       .then(item => {
