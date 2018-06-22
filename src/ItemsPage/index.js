@@ -15,6 +15,10 @@ class ItemsPage extends Component {
       condition: "",
       quantity: "",
       img_url: "",
+      userEmail: "",
+      userPhone: "",
+      userLongitude: "",
+      userLatitude: ""
     };
   }
 
@@ -24,15 +28,20 @@ class ItemsPage extends Component {
     fetch(`/items/${id}.json`)
       .then(response => response.json())
       .then(item => {
+        console.log(item);
         this.setState({
-          user_name_id: item.user_name_id,
-          category_id: item.category_id,
-          name: item.name,
-          description: item.description,
-          price: item.price,
-          condition: item.condition,
-          quantity: item.quantity,
-          img_url: item.img_url
+          user_name_id: item.user.username,
+          category_id: item.category.name,
+          name: item.item.name,
+          description: item.item.description,
+          price: item.item.price,
+          condition: item.item.condition,
+          quantity: item.item.quantity,
+          img_url: item.item.img_url,
+          userEmail: item.user.email,
+          userPhone: item.user.phone_number,
+          userLongitude: item.user.longitude,
+          userLatitude: item.user.latitude,
         });
       });
   }
@@ -54,6 +63,9 @@ class ItemsPage extends Component {
         <p>Condition: {this.state.condition}</p>
         <p>Quantity: {this.state.quantity}</p>
         <p>Listed By: {this.state.user_name_id}</p>
+        <p>Email: {this.state.userEmail}</p>
+        <p>Phone Number: {this.state.userPhone}</p>
+        <p>Location: {this.state.userLongitude}, {this.state.userLatitude}</p>
         <p>Category: {this.state.category_id}</p>
       </div>
     );

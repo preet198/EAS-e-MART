@@ -80,7 +80,6 @@ app.get('/items.json', (request, response) => {
   });
 });
 
-
 app.get('/items/:id.json', (request, response) => {
   Items.find(request.params.id)
     .then(item => {
