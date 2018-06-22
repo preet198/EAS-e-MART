@@ -6,7 +6,7 @@ class ItemsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 1,
+      id: 0,
       user_name_id: "",
       category_id: "",
       name: "",
@@ -14,12 +14,12 @@ class ItemsPage extends Component {
       price: "",
       condition: "",
       quantity: "",
-      img_url: ""
+      img_url: "",
     };
   }
 
   componentDidMount() {
-    let id = Number(this.props.match.params.id);
+    let id = this.props.match.params.id;
     console.log(id);
     fetch(`/items/${id}.json`)
       .then(response => response.json())

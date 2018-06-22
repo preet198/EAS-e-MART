@@ -25,7 +25,7 @@ class Items extends Component {
       <div className="Items">
         {this.state.items.map(item => {
           return <Item
-            key={item.id}
+            id={item.id}
             img_url={item.img_url}
             name={item.name}
             price={item.price}

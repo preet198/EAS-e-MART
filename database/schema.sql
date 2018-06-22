@@ -2,12 +2,11 @@
 DROP DATABASE IF EXISTS eas_e_mart;
 CREATE DATABASE eas_e_mart;
 
--- \c eas_e_mart;
+\c eas_e_mart;
 
+DROP TABLE IF EXISTS items;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS items;
-
 
 
 CREATE TABLE users (

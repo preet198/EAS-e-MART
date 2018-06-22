@@ -17,12 +17,12 @@ class App extends Component {
             <nav>
               <Link to="/">Home Page</Link>
               <Link to="/login">LogIn *register in logIn modal</Link>
-              <Link to="/items.json">All Items</Link>
+              <Link to="/items">All Items</Link>
             </nav>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />
-            <Route path="/items.json" exact component={Items} />
-            <Route path="/items/:id.json" exact component={ItemsPage} />
+            <Route path="/items" exact component={Items} />
+            <Route path="/items/:id" exact component={ItemsPage} />
           </div>
         </div>
       </Router>

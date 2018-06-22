@@ -80,24 +80,21 @@ app.get('/items.json', (request, response) => {
   });
 });
 
+
 app.get('/items/:id.json', (request, response) => {
   Items.find(request.params.id)
-    .then(data => {
-      response.json(data);
+    .then(item => {
+      Categories.find(item.category_id).then(category => {
+        User.find(item.user_name_id).then(user => {
+        const dataForTemplate = {};
+        dataForTemplate['item'] = item;
+        dataForTemplate['category'] = category;
+        dataForTemplate['user'] = user;
+        response.json(dataForTemplate);
+        });
+      });
     });
 });
-
-// app.get('/items/:id.json', (request, response) => {
-//   Items.find(request.params.id)
-//     .then(data => {
-//       Categories.find(category_id).then(category => {
-//         const dataForTemplate = {};
-//         dataForTemplate['item'] = item;
-//         dataForTemplate['category'] = category;
-//         response.json(dataTemplate);
-//       });
-//     });
-// });
 
 //Categories server calls
 app.get('/categories.json', (request, response) => {

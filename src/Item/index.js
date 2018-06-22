@@ -12,7 +12,7 @@ class Items extends Component {
           <img src={this.props.img_url} />
         </div>
         <div className="Items-details">
-          <h2><Link to={`/items/${this.props.id}.json`}>
+          <h2><Link to={`/items/${this.props.id}`}>
           {console.log(this.props.id)}
           {this.props.name}</Link></h2>
           <p>Price: {this.props.price}</p>
