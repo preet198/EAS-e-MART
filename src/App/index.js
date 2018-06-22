@@ -20,7 +20,7 @@ class App extends Component {
         </nav>
           <Route path="/" exact component = {HomePage} />
           <Route path="/login" exact component = {LoginPage} />
-          <Route path="/create" exact component={Create} />
+          <Route path="/item/create" exact component={Create} />
         </div>
       </div>
       </Router>

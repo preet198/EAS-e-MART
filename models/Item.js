@@ -11,7 +11,7 @@ Items.find = id => {
 };
 
 Items.create = newItem=> {
-  return db.one("INSERT INTO items (user_name_id, category_id, name, description, price, condition, quantity, img_url) VALUES (${user_name_id}, ${category_id}, ${name}, ${description}, ${price}, ${condition}, ${quantity}, ${image_url}) RETURNING *", newItem);
+  return db.one("INSERT INTO items (user_name_id, category_id, name, description, price, condition, quantity, img_url) VALUES (${user_name_id}, ${category_id}, ${name}, ${description}, ${price}, ${condition}, ${quantity}, ${img_url}) RETURNING *", newItem);
 };
 
 Items.update = updatedItem => {
