@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map} from 'google-maps-react';
+import ReactDOM from "react-dom";
 import "./style.css";
 
 class MapContainer extends Component {
@@ -12,22 +13,28 @@ class MapContainer extends Component {
     if (this.props && this.props.google) {
       const {google} = this.props;
       const maps = google.maps;
-      console.log(this.props);
+      const mapRef = this.refs.map;
+      const node = ReactDOM.findDOMNode(mapRef);
 
+      const mapConfig = Object.assign({}, {
+        center: {lat: 40.6976637, lng: -74.1197636},
+        zoom: 8
+      });
 
-
+      this.map = new maps.Map(node, mapConfig);
     }
   }
 
   render() {
     const style = {
-      width: '20vw',
-      height: '20vh'
+      width: '60vw',
+      height: '60vh'
     }
-    return (
-      <Map google={this.props.google} zoom={14} style={style} >
 
-      </Map>
+    return (
+      <div ref="map" style={style}>
+          <Map google={this.props.google.div} />
+      </div>
     );
   }
 }

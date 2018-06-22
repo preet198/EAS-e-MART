@@ -9,6 +9,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "google-maps-react": "^2.0.2",
     "jest": "^23.1.0",
     "pg-monitor": "^1.0.0",
     "pg-promise": "^8.4.4",

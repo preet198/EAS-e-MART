@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import HomePage from '../HomePage';
 import "./style.css";
 import LoginPage from "../LoginPage";
@@ -29,5 +30,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
