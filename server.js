@@ -6,10 +6,12 @@ const Categories = require('./models/Category');
 const User = require('./models/User');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+var FileStore = require('session-file-store')(session);
+
 
 // Create a new Express application (web server)
 const app = express();
-  
+
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;
@@ -17,9 +19,11 @@ const PORT = process.env.PORT || 4567;
 app.use('/static', express.static('build/static'));
 
 app.use(session({
+  store: new FileStore(),
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
+
 }));
 
 app.use(bodyParser.json());
@@ -71,6 +75,25 @@ app.post("/login", (request, response) => {
       });
   });
 });
+
+app.post('/item/create.json', (request, response) => {
+  const userid = request.session.userId
+  const newItem = {
+    user_name_id: userid,
+    name: request.body.name,
+    description: request.body.description,
+    price: request.body.price,
+    condition: request.body.condition,
+    quantity: request.body.quantity,
+    img_url: request.body.img_url,
+    category_id: request.body.category_id
+  }
+
+  Items.create(newItem)
+    .then(item => {
+      response.json(item)
+    })
+})
 
 //Items server calls
 app.get('/items.json', (request, response) => {

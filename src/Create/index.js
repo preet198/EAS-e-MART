@@ -10,11 +10,25 @@ class Create extends Component {
       condition: '',
       quantity: '',
       img_url: '',
+      category_id: '',
+      category: [],
       created: false
     }
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
+
+  componentDidMount() {
+    fetch('/categories.json')
+      .then(response => response.json())
+      .then(category => {
+        console.log(category);
+          this.setState({
+          category: category
+        })
+      })
+  }
+
 
   onFormChange(evt) {
     const element = evt.target
@@ -23,6 +37,7 @@ class Create extends Component {
     const newState = {}
     newState[name] = value
     this.setState(newState)
+
   }
 
   onFormSubmit(evt) {
@@ -34,15 +49,21 @@ class Create extends Component {
       condition: this.state.condition,
       quantity: this.state.quantity,
       img_url: this.state.img_url,
+      category: this.state.category,
+      category_id: this.state.category_id
     }
-    fetch('/create.json', {
+    console.log('onFormSubmit:', newItem);
+
+    fetch('/item/create.json', {
       method: 'POST',
       body: JSON.stringify(newItem),
       headers: {
-        "Content-type": "application/json"
+        "Content-Type": "application/json"
       }
-    }).then(response => response.json())
-    .then(newitem => {
+    })
+    .then(response => response.json())
+    .then(newItem => {
+      console.log('fetch post:',newItem);
       this.setState({
         created: true
       })
@@ -53,6 +74,11 @@ class Create extends Component {
       <div>
         <h1>Add Item</h1>
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
+          <select name="category_id">
+            {this.state.category.map((category, index) => {
+              return <option value={category.id}>{category.name}</option>
+            })}
+          </select>
           <input type='text' name='name' placeholder='name' value={this.state.name} />
           <input type='text' name='description' placeholder='description' value={this.state.description} />
           <input type='text' name='price' placeholder='price' value={this.state.price} />

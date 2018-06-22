@@ -10,7 +10,7 @@ Items.find = id => {
   return db.one("SELECT * FROM items WHERE id = ${id} ORDER BY ID ASC", { id: id });
 };
 
-Items.create = newItem => {
+Items.create = newItem=> {
   return db.one("INSERT INTO items (user_name_id, category_id, name, description, price, condition, quantity, img_url) VALUES (${user_name_id}, ${category_id}, ${name}, ${description}, ${price}, ${condition}, ${quantity}, ${image_url}) RETURNING *", newItem);
 };
 
