@@ -16,6 +16,10 @@ User.create = (newUser) =>
       $<email>, $<location>, $<first_name>, $<last_name>, $<latitude>, $<longitude>) RETURNING *`, newUser
   );
 
+User.find = id => {
+  return db.one("SELECT * FROM users WHERE id = ${id} ORDER BY ID ASC", { id: id });
+};
+
 // Users.update = updatedUser => {
 //   return db.none("UPDATE users SET username = ${username}, password_digest = ${password_digest}, phone_number = ${phone_number}, email = ${email}, location = ${location}, first_name = ${first_name}, last_name = ${last_name}, latitude = ${latitude}, longitude = ${longitude} WHERE username = ${username}", updatedUser);
 // };
