@@ -1,5 +1,4 @@
 const db = require("../database/connection");
-// console.log('here')
 const Items = {};
 
 Items.all = () => {
@@ -7,7 +6,7 @@ Items.all = () => {
 };
 
 Items.find = id => {
-  return db.one("SELECT * FROM items WHERE id = ${id} ORDER BY ID ASC", { id: id });
+  return db.one("SELECT * FROM items WHERE id = ${id}", { id: id });
 };
 
 Items.create = newItem => {
