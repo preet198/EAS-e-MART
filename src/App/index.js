@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HomePage from '../HomePage';
 import "./style.css";
 import LoginPage from "../LoginPage";
+import Create from "../Create";
+
 
 class App extends Component {
   render() {
@@ -18,6 +20,7 @@ class App extends Component {
         </nav>
           <Route path="/" exact component = {HomePage} />
           <Route path="/login" exact component = {LoginPage} />
+          <Route path="/create" exact component={Create} />
         </div>
       </div>
       </Router>

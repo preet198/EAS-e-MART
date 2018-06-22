@@ -9,6 +9,12 @@ const bodyParser = require('body-parser');
 
 // Create a new Express application (web server)
 const app = express();
+  
+// Set the port based on the environment variable (PORT=8080 node server.js)
+// and fallback to 4567
+const PORT = process.env.PORT || 4567;
+
+app.use('/static', express.static('build/static'));
 
 app.use(session({
   secret: 'keyboard cat',
@@ -65,13 +71,6 @@ app.post("/login", (request, response) => {
       });
   });
 });
-
-// Set the port based on the environment variable (PORT=8080 node server.js)
-// and fallback to 4567
-const PORT = process.env.PORT || 4567;
-
-app.use('/static', express.static('build/static'));
-
 
 //Items server calls
 app.get('/items.json', (request, response) => {
