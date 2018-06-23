@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import Item from '../Item';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 class UpdateItem extends Component {

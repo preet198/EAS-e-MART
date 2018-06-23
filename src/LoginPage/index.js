@@ -22,7 +22,7 @@ class LoginPage extends Component {
   render() {
     if (!this.state.userLoggedIn) {
       return (
-        <div className="App">
+        <div className="LoginPage">
           <h1>EAS-E-MART</h1>
           <Login onUserLoggedIn={this.updateUserLoggedIn} />
           <Register onUserLoggedIn={this.updateUserLoggedIn} />
