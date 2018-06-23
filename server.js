@@ -119,6 +119,40 @@ app.get('/items/:id.json', (request, response) => {
     });
 });
 
+app.get('/item/update/:id.json', (request, response) => {
+  Items.find(request.params.id)
+    .then(item => {
+      Categories.find(item.category_id).then(category => {
+        User.find(item.user_name_id).then(user => {
+          const dataForTemplate = {};
+          dataForTemplate['item'] = item;
+          dataForTemplate['category'] = category;
+          dataForTemplate['user'] = user;
+          response.json(dataForTemplate);
+        });
+      });
+    });
+});
+
+app.put('/item/update/:id.json', (request, response) => {
+  const id = request.params.id
+  const updateItem = {
+    user_name_id: request.body.user_name_id,
+    category_id: request.body.category_id,
+    name: request.body.name,
+    description: request.body.description,
+    price: request.body.price,
+    condition: request.body.condition,
+    quantity: request.body.quantity,
+    img_url: request.body.img_url,
+    id: request.body.id
+  };
+  Items.update(updateItem).then(() => {
+    response.json({
+      status: "ok"
+    })
+  });
+});
 //Categories server calls
 app.get('/categories.json', (request, response) => {
   Categories.all().then(categoriesData => {

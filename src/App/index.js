@@ -6,10 +6,10 @@ import LoginPage from "../LoginPage";
 import Create from "../Create";
 import Items from "../Items";
 import ItemsPage from "../ItemsPage";
+import UpdateItem from "../UpdateItem";
 
 
 class App extends Component {
-
   render() {
     return (
       <Router>
@@ -25,6 +25,7 @@ class App extends Component {
             <Route path="/login" exact component={LoginPage} />
             <Route path="/items" exact component={Items} />
             <Route path="/item/create" exact component={Create} />
+            <Route path="/item/update/:id" exact component={UpdateItem} />
             <Route path="/items/:id" exact component={ItemsPage} />
           </div>
         </div>
