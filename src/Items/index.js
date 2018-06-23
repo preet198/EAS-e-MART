@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import {GoogleApiWrapper} from 'google-maps-react';
-
 import Item from '../Item';
 import MapContainer from "../MapContainer";
-
 import "./style.css";
 
 class Items extends Component {
@@ -41,10 +39,8 @@ class Items extends Component {
             />
           })}
         </div>
-
         <div className="item-map">
           <MapContainer google={this.props.google} />
-
         </div>
       </div>
     );

@@ -9,12 +9,16 @@ class Items extends Component {
     return (
       <div className="Items">
         <div className="image-wrapper">
-          <img src={this.props.img_url} />
+        {/* image of the item link to item page*/}
+        <Link to={`/items/${this.props.id}`}>
+          <img src={this.props.img_url} /></Link>
         </div>
         <div className="Items-details">
-          <h2><Link to={`/items/${this.props.id}`}>
+        {/* item name link to single item page */}
+          <h3><Link to={`/items/${this.props.id}`}>
           {console.log(this.props.id)}
-          {this.props.name}</Link></h2>
+          {this.props.name}</Link></h3>
+          {/* price of the item */}
           <p>Price: {this.props.price}</p>
         </div>
       </div>
