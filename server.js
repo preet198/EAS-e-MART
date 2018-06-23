@@ -135,9 +135,10 @@ app.get('/item/update/:id.json', (request, response) => {
 });
 
 app.put('/item/update/:id.json', (request, response) => {
+  const userId = request.session.userId
   const id = request.params.id
   const updateItem = {
-    user_name_id: request.body.user_name_id,
+    user_name_id: userId,
     category_id: request.body.category_id,
     name: request.body.name,
     description: request.body.description,
@@ -145,7 +146,7 @@ app.put('/item/update/:id.json', (request, response) => {
     condition: request.body.condition,
     quantity: request.body.quantity,
     img_url: request.body.img_url,
-    id: request.body.id
+    id: id
   };
   Items.update(updateItem).then(() => {
     response.json({
