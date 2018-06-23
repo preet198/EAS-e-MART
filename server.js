@@ -62,6 +62,8 @@ app.post("/login", (request, response) => {
         if (isPasswordCorrect) {
           request.session.loggedIn = true;
           request.session.userId = user.id;
+          console.log('session line', request.session);
+
           return response.json({
             loggedIn: true,
             user: { user }
@@ -77,9 +79,10 @@ app.post("/login", (request, response) => {
 });
 
 app.post('/item/create.json', (request, response) => {
-  const userid = request.session.userId
+  const userId = request.session.userId
+  console.log('request:', request.session);
   const newItem = {
-    user_name_id: userid,
+    user_name_id: userId,
     name: request.body.name,
     description: request.body.description,
     price: request.body.price,
@@ -88,7 +91,6 @@ app.post('/item/create.json', (request, response) => {
     img_url: request.body.img_url,
     category_id: request.body.category_id
   }
-
   Items.create(newItem)
     .then(item => {
       response.json(item)

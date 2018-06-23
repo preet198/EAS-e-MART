@@ -56,6 +56,7 @@ class Create extends Component {
 
     fetch('/item/create.json', {
       method: 'POST',
+      credentials: 'include',
       body: JSON.stringify(newItem),
       headers: {
         "Content-Type": "application/json"

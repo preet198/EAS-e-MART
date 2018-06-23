@@ -7,22 +7,24 @@ import Create from "../Create";
 
 
 class App extends Component {
+
   render() {
     return (
       <Router>
-      <div>
-      <div className="App">
-        <img src="https://farm2.staticflickr.com/1810/42939870751_33b6a555e2_b.jpg" className="logo"/>
-        <nav>
-          <Link to="/">Home Page</Link>
-          <br></br>
-          <Link to="/login">LogIn *register in logIn modal</Link>
-        </nav>
-          <Route path="/" exact component = {HomePage} />
-          <Route path="/login" exact component = {LoginPage} />
-          <Route path="/item/create" exact component={Create} />
+        <div>
+          <div className="App">
+            <img src="https://farm2.staticflickr.com/1810/42939870751_33b6a555e2_b.jpg" className="logo" />
+            <nav>
+              <Link to="/">Home Page</Link>
+              <br></br>
+              <Link to="/login">LogIn *register in logIn modal</Link>
+            </nav>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/login" exact component={LoginPage} />
+            <Route path="/item/create" exact component={Create} />
+            
         </div>
-      </div>
+        </div>
       </Router>
     );
   }
