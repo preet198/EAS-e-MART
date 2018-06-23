@@ -4,6 +4,8 @@ import HomePage from '../HomePage';
 import "./style.css";
 import LoginPage from "../LoginPage";
 import Create from "../Create";
+import Items from "../Items";
+import ItemsPage from "../ItemsPage";
 
 
 class App extends Component {
@@ -16,14 +18,15 @@ class App extends Component {
             <img src="https://farm2.staticflickr.com/1810/42939870751_33b6a555e2_b.jpg" className="logo" />
             <nav>
               <Link to="/">Home Page</Link>
-              <br></br>
               <Link to="/login">LogIn *register in logIn modal</Link>
+              <Link to="/items">All Items</Link>
             </nav>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />
+            <Route path="/items" exact component={Items} />
             <Route path="/item/create" exact component={Create} />
-            
-        </div>
+            <Route path="/items/:id" exact component={ItemsPage} />
+          </div>
         </div>
       </Router>
     );
