@@ -19,7 +19,8 @@ class UpdateItem extends Component {
       userEmail: "",
       userPhone: "",
       userLongitude: "",
-      userLatitude: ""
+      userLatitude: "",
+      category: []
     };
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -107,9 +108,9 @@ class UpdateItem extends Component {
       <div className="updateItem">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <select name="category_id">
-            {/* {this.state.category.map((category, index) => {
+            {this.state.category.map((category) => {
               return <option value={category.id}>{category.name}</option>
-            })} */}
+            })}
           </select>
           <p>
             <label for="name">Name</label>
