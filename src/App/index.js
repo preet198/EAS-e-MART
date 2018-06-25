@@ -5,8 +5,12 @@ import "./style.css";
 import LoginPage from "../LoginPage";
 import Create from "../Create";
 import Items from "../Items";
+import Item from "../Item";
+import Categories from "../Categories";
+import Category from "../Category";
 import ItemsPage from "../ItemsPage";
 import UpdateItem from "../UpdateItem";
+
 
 
 class App extends Component {
@@ -17,8 +21,10 @@ class App extends Component {
           <div className="App">
             <img src="https://farm2.staticflickr.com/1810/42939870751_33b6a555e2_b.jpg" className="logo" />
             <nav>
-              <Link to="/">Home Page</Link>
-              <Link to="/login">LogIn *register in logIn modal</Link>
+              <Link to="/">🏠</Link>
+              <br></br>
+              <Link to="/login">LogIn</Link>
+              <br></br>
               <Link to="/items">All Items</Link>
             </nav>
             <Route path="/" exact component={HomePage} />
@@ -33,5 +39,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

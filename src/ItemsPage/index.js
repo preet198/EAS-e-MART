@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import MapContainer from "../MapContainer";
+import {GoogleApiWrapper} from 'google-maps-react';
+
 import Item from '../Item';
 import "./style.css";
 
@@ -49,6 +52,7 @@ class ItemsPage extends Component {
   render() {
     return (
       <div className="ItemsPage">
+      <div className="Item">
         <Item
           user_name_id={this.state.user_name_id}
           category_id={this.state.category_id}
@@ -62,14 +66,22 @@ class ItemsPage extends Component {
         <p>Description: {this.state.description}</p>
         <p>Condition: {this.state.condition}</p>
         <p>Quantity: {this.state.quantity}</p>
-        <p>Listed By: {this.state.user_name_id}</p>
-        <p>Email: {this.state.userEmail}</p>
-        <p>Phone Number: {this.state.userPhone}</p>
-        <p>Location: {this.state.userLongitude}, {this.state.userLatitude}</p>
-        <p>Category: {this.state.category_id}</p>
+        <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" class="icon"/>: {this.state.user_name_id}</p>
+        <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" class="icon"/>: {this.state.userEmail}</p>
+        <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" class="icon"/>: {this.state.userPhone}</p>
+        <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Maps-icon.png" class="icon"/>: {this.state.userLongitude}, {this.state.userLatitude}</p>
+        {/* <p>Category: {this.state.category_id}</p> */}
+        </div>
+
+        <div className="item-map">
+          <MapContainer google={this.props.google} />
+        </div>
+
       </div>
     );
   }
 }
 
-export default ItemsPage;
+export default GoogleApiWrapper({
+  apiKey: ('AIzaSyCeTdCRweKINV2rVaMeM8LSSFMewLhUAXI')
+})(ItemsPage)

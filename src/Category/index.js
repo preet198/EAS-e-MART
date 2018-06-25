@@ -1,27 +1,26 @@
-// Elyas claimed this page
-
 import React, { Component } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-class Items extends Component {
+class Categories extends Component {
   render() {
     return (
-      <div className="Items">
+      <div className="Categories">
         <div className="image-wrapper">
         {/* image of the item link to item page*/}
-        <Link to={`/items/${this.props.id}`}>
+        <Link to={`/items`}>
           <img src={this.props.img_url} /></Link>
         </div>
-        <div className="Items-details">
-          <h3><Link to={`/items/${this.props.id}`}>
+        <div className="Categories-details">
+        {/* item name link to single item page */}
+          <h3><Link to={`/items`}>
           {console.log(this.props.id)}
           {this.props.name}</Link></h3>
-          <p>Price: {this.props.price}</p>
         </div>
       </div>
+
     );
   }
 }
 
-export default Items;
+export default Categories;
