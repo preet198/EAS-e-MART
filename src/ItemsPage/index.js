@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import MapContainer from "../MapContainer";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {GoogleApiWrapper} from 'google-maps-react';
-
+import MapContainer from "../MapContainer";
 import Item from '../Item';
+
 import "./style.css";
 
 class ItemsPage extends Component {
@@ -78,7 +78,7 @@ class ItemsPage extends Component {
         </div>
 
         <div className="item-map">
-          <MapContainer google={this.props.google} />
+          <MapContainer google={this.props.google} lat={this.state.userLatitude} lng={this.state.userLongitude} />
         </div>
 
       </div>
