@@ -21,7 +21,7 @@ INSERT INTO users
 VALUES
 ('test','password','1234567','test@ga.co','nyc','john','doe',40.758850,-73.985142),
 ('test1','password1','2345678','test1@ga.co','boston','jone','doe',48.860446,2.344790),
-('asdf','$2b$12$pIHAW4LngwWeaWoqCqcTpuFBFiSCNZ4dCGhTSpQA2Ji0lXPiasedK','234','asdf','asf','asfd','af',40.0,73.0);
+('asdf','$2a$04$y9O6h5sI2kgU.XcVLo8nauv9fX6LrO61CYap6Gz.VjLviZPlb.6Py','234','asdf','asf','asfd','af',40.0,73.0);
 
 
 INSERT INTO items
