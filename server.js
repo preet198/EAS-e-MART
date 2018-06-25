@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
@@ -23,7 +24,6 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
-
 }));
 
 app.use(bodyParser.json());
@@ -154,6 +154,15 @@ app.put('/item/update/:id.json', (request, response) => {
     })
   });
 });
+
+app.delete('/items/delete/:id.json', (request, response) => {
+  Items.delete(request.params.id).then(() => {
+    response.json({
+      deleted: true,
+    });
+  });
+});
+
 //Categories server calls
 app.get('/categories.json', (request, response) => {
   Categories.all().then(categoriesData => {
