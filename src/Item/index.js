@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-class Items extends Component {
+class Item extends Component {
   render() {
     return (
       <div className="Items">
@@ -24,4 +24,4 @@ class Items extends Component {
   }
 }
 
-export default Items;
+export default Item;

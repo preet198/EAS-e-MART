@@ -19,7 +19,8 @@ class UpdateItem extends Component {
       userPhone: "",
       userLongitude: "",
       userLatitude: "",
-      category: []
+      category: [],
+      updated: false
     };
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -39,10 +40,11 @@ class UpdateItem extends Component {
     fetch(`/item/update/${id}.json`)
       .then(response => response.json())
       .then(item => {
+        console.log(item);
         this.setState({
           id: id,
           user_name_id: item.user.username,
-          category_id: item.category.name,
+          category_id: item.category.id,
           name: item.item.name,
           description: item.item.description,
           price: item.item.price,
@@ -55,6 +57,7 @@ class UpdateItem extends Component {
           userLatitude: item.user.latitude,
         });
       });
+
   }
 
   onFormChange(evt) {
@@ -64,6 +67,8 @@ class UpdateItem extends Component {
     const newState = {};
     newState[name] = value;
     this.setState(newState);
+
+
   }
 
   onFormSubmit(evt) {
@@ -77,7 +82,8 @@ class UpdateItem extends Component {
       quantity: this.state.quantity,
       img_url: this.state.img_url,
       category: this.state.category,
-      category_id: this.state.category_id
+      category_id: this.state.category_id,
+      updated: this.state.updated
     }
     console.log('onFormSubmit:', updateItem);
 
@@ -89,7 +95,8 @@ class UpdateItem extends Component {
         "Content-type": "application/json"
       }
     }).then(response => response.json())
-      .then(boardGame => {
+      .then(item => {
+        console.log('state set to update');
         this.setState({
           updated: true
         });
@@ -100,6 +107,9 @@ class UpdateItem extends Component {
 
     if (this.state.updated === true) {
       let id = this.props.match.params.id;
+      console.log('redirect to', id);
+      console.log('i fired to quick');
+
       return <Redirect to={`/items/${id}`} />;
     }
 
@@ -107,8 +117,14 @@ class UpdateItem extends Component {
       <div className="updateItem">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <select name="category_id">
-            {this.state.category.map((category) => {
-              return <option value={category.id}>{category.name}</option>
+            {this.state.category.map((category, index) => {
+              return <option
+                key={index}
+                value={category.id}
+                selected={this.state.category_id === category.id ? 'selected' : ''}
+              >
+                {category.name}
+              </option>
             })}
           </select>
           <p>

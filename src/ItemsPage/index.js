@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import MapContainer from "../MapContainer";
-import {GoogleApiWrapper} from 'google-maps-react';
-
+import { GoogleApiWrapper } from 'google-maps-react';
+import Items from '../Items';
+import UpdateItem from '../UpdateItem';
 import Item from '../Item';
+
 import "./style.css";
 
 class ItemsPage extends Component {
@@ -21,13 +24,19 @@ class ItemsPage extends Component {
       userEmail: "",
       userPhone: "",
       userLongitude: "",
-      userLatitude: ""
+      userLatitude: "",
+      deleted: false,
     };
+    this.deleteOnClick = this.deleteOnClick.bind(this);
   }
 
   componentDidMount() {
+    this.itemPageFetch();
+  }
+
+  itemPageFetch() {
+    console.log('item page fetch');
     let id = this.props.match.params.id;
-    console.log(id);
     fetch(`/items/${id}.json`)
       .then(response => response.json())
       .then(item => {
@@ -45,32 +54,72 @@ class ItemsPage extends Component {
           userPhone: item.user.phone_number,
           userLongitude: item.user.longitude,
           userLatitude: item.user.latitude,
+          deleted: this.state.deleted,
+        });
+      });
+  }
+
+  deleteOnClick(evt) {
+    evt.preventDefault();
+    const item = this.state;
+    let id = this.props.match.params.id;
+    fetch(`/items/delete/${id}.json`, {
+      method: "DELETE",
+      credentials: 'include',
+      body: JSON.stringify(item),
+      headers: {
+        "Content-type": "application/json"
+      }
+    }).then(response => response.json())
+      .then(item => {
+        console.log('deleted');
+        this.setState({
+          deleted: true
         });
       });
   }
 
   render() {
+    let id = this.props.match.params.id;
+    console.log(id);
+    if (this.state.deleted == true) {
+      console.log(this.state);
+      return <Redirect to={"/items"} />
+    }
     return (
       <div className="ItemsPage">
-      <div className="Item">
-        <Item
-          user_name_id={this.state.user_name_id}
-          category_id={this.state.category_id}
-          name={this.state.name}
-          description={this.state.description}
-          price={this.state.price}
-          condition={this.state.condition}
-          quantity={this.state.quantity}
-          img_url={this.state.img_url}
-        />
-        <p>Description: {this.state.description}</p>
-        <p>Condition: {this.state.condition}</p>
-        <p>Quantity: {this.state.quantity}</p>
-        <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" class="icon"/>: {this.state.user_name_id}</p>
-        <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" class="icon"/>: {this.state.userEmail}</p>
-        <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" class="icon"/>: {this.state.userPhone}</p>
-        <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Maps-icon.png" class="icon"/>: {this.state.userLongitude}, {this.state.userLatitude}</p>
-        {/* <p>Category: {this.state.category_id}</p> */}
+        <div className="Item">
+          <Item
+            user_name_id={this.state.user_name_id}
+            category_id={this.state.category_id}
+            name={this.state.name}
+            description={this.state.description}
+            price={this.state.price}
+            condition={this.state.condition}
+            quantity={this.state.quantity}
+            img_url={this.state.img_url}
+          />
+          <p>Description: {this.state.description}</p>
+          <p>Condition: {this.state.condition}</p>
+          <p>Quantity: {this.state.quantity}</p>
+          <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" className="icon" />: {this.state.user_name_id}</p>
+          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" className="icon" />: {this.state.userEmail}</p>
+          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" />: {this.state.userPhone}</p>
+          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Maps-icon.png" className="icon" />: {this.state.userLongitude}, {this.state.userLatitude}</p>
+          <Link to={`/item/update/${id}`}>Update This Item</Link>
+          {/* <Router>
+            <div>
+
+            <Route path="/item/update/:id" exact component={UpdateItem} />
+            </div>
+          </Router> */}
+
+          <form onClick={this.deleteOnClick}>
+            <button> Delete This Item </button>
+          </form>
+
+
+          {/* <p>Category: {this.state.category_id}</p> */}
         </div>
 
         <div className="item-map">
