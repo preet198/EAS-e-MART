@@ -16,15 +16,13 @@ class LoginPage extends Component {
     console.log(user);
     this.setState({
       userLoggedIn: true,
-      userId: user.id
     });
   }
 
   render() {
-
     if (!this.state.userLoggedIn) {
       return (
-        <div className="App">
+        <div className="LoginPage">
           <h1>EAS-E-MART</h1>
           <Login onUserLoggedIn={this.updateUserLoggedIn} />
           <Register onUserLoggedIn={this.updateUserLoggedIn} />

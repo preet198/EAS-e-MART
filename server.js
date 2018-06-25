@@ -6,14 +6,24 @@ const Categories = require('./models/Category');
 const User = require('./models/User');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+var FileStore = require('session-file-store')(session);
+
 
 // Create a new Express application (web server)
 const app = express();
 
+// Set the port based on the environment variable (PORT=8080 node server.js)
+// and fallback to 4567
+const PORT = process.env.PORT || 4567;
+
+app.use('/static', express.static('build/static'));
+
 app.use(session({
+  store: new FileStore(),
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
+
 }));
 
 app.use(bodyParser.json());
@@ -52,6 +62,8 @@ app.post("/login", (request, response) => {
         if (isPasswordCorrect) {
           request.session.loggedIn = true;
           request.session.userId = user.id;
+          console.log('session line', request.session);
+
           return response.json({
             loggedIn: true,
             user: { user }
@@ -66,12 +78,24 @@ app.post("/login", (request, response) => {
   });
 });
 
-// Set the port based on the environment variable (PORT=8080 node server.js)
-// and fallback to 4567
-const PORT = process.env.PORT || 4567;
-
-app.use('/static', express.static('build/static'));
-
+app.post('/item/create.json', (request, response) => {
+  const userId = request.session.userId
+  console.log('request:', request.session);
+  const newItem = {
+    user_name_id: userId,
+    name: request.body.name,
+    description: request.body.description,
+    price: request.body.price,
+    condition: request.body.condition,
+    quantity: request.body.quantity,
+    img_url: request.body.img_url,
+    category_id: request.body.category_id
+  }
+  Items.create(newItem)
+    .then(item => {
+      response.json(item)
+    })
+})
 
 //Items server calls
 app.get('/items.json', (request, response) => {
@@ -95,6 +119,41 @@ app.get('/items/:id.json', (request, response) => {
     });
 });
 
+app.get('/item/update/:id.json', (request, response) => {
+  Items.find(request.params.id)
+    .then(item => {
+      Categories.find(item.category_id).then(category => {
+        User.find(item.user_name_id).then(user => {
+          const dataForTemplate = {};
+          dataForTemplate['item'] = item;
+          dataForTemplate['category'] = category;
+          dataForTemplate['user'] = user;
+          response.json(dataForTemplate);
+        });
+      });
+    });
+});
+
+app.put('/item/update/:id.json', (request, response) => {
+  const userId = request.session.userId
+  const id = request.params.id
+  const updateItem = {
+    user_name_id: userId,
+    category_id: request.body.category_id,
+    name: request.body.name,
+    description: request.body.description,
+    price: request.body.price,
+    condition: request.body.condition,
+    quantity: request.body.quantity,
+    img_url: request.body.img_url,
+    id: id
+  };
+  Items.update(updateItem).then(() => {
+    response.json({
+      status: "ok"
+    })
+  });
+});
 //Categories server calls
 app.get('/categories.json', (request, response) => {
   Categories.all().then(categoriesData => {
