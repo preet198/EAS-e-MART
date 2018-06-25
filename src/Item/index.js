@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class Item extends Component {
   render() {
     return (
-      <div className="Items">
+      <div className="Item">
         <div className="image-wrapper">
         {/* image of the item link to item page*/}
         <Link to={`/items/${this.props.id}`}>

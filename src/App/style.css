@@ -1,5 +1,6 @@
 img {
-  width: 400px;
+  width: 100px;
+  /* padding: 50px; */
 }
 
 .icon {
@@ -18,3 +19,20 @@ h2 {
   display: flex;
   /* grid-template-areas: */
 }
+
+.map {
+}
+
+.Items {
+  display: flex;
+}
+
+
+.Categories {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  /* justify-content: space-between; */
+  align-self: center;
+}
+

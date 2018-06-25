@@ -1,0 +1,10 @@
+
+.Items {
+  display: flex;
+  height: 100vh;
+}
+
+
+.item-details {
+  overflow: auto;
+}
