@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Login from "../Login";
 import Register from "../Register";
 import "./style.css";
+import { Redirect } from 'react-router-dom';
 
 class LoginPage extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class LoginPage extends Component {
       );
     }
     return (
-      <h1>Hi</h1>
+      <Redirect to="/items" />
     )
   };
 };

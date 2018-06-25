@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class Create extends Component {
   constructor(props) {
@@ -71,6 +72,10 @@ class Create extends Component {
     })
   }
   render() {
+    if (this.state.created === true) {
+      // let id = this.props.match.params.id;
+      return <Redirect to="/items" />;
+    }
     return (
       <div>
         <h1>Add Item</h1>
