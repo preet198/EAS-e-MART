@@ -29,7 +29,7 @@ class Items extends Component {
           {this.state.items.map(item => {
             console.log(item)
             return <Item
-              key={item.id}
+              id={item.id}
               img_url={item.img_url}
               name={item.name}
               price={item.price}

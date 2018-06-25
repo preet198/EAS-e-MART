@@ -5,6 +5,8 @@ import "./style.css";
 import LoginPage from "../LoginPage";
 import Items from "../Items";
 import Item from "../Item";
+import Categories from "../Categories";
+import Category from "../Category";
 import ItemsPage from "../ItemsPage";
 
 
@@ -22,7 +24,6 @@ class App extends Component {
               <Link to="/login">LogIn</Link>
               <br></br>
               <Link to="/items">All Items</Link>
-
             </nav>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />

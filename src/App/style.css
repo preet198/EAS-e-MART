@@ -1,7 +1,10 @@
 img {
-  width: 100px;
+  width: 400px;
 }
 
+.icon {
+  width: 30px;
+}
 
 h2 {
   color: darkblue;
@@ -9,4 +12,9 @@ h2 {
 
 .logo {
   width: 400px;
+}
+
+.ItemsPage {
+  display: flex;
+  /* grid-template-areas: */
 }
