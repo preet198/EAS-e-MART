@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MapContainer from "../MapContainer";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {GoogleApiWrapper} from 'google-maps-react';
 
 import Item from '../Item';
@@ -71,6 +72,9 @@ class ItemsPage extends Component {
         <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" class="icon"/>: {this.state.userPhone}</p>
         <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Maps-icon.png" class="icon"/>: {this.state.userLongitude}, {this.state.userLatitude}</p>
         {/* <p>Category: {this.state.category_id}</p> */}
+
+        <Link to="/item/update/${id}">Update</Link>
+
         </div>
 
         <div className="item-map">

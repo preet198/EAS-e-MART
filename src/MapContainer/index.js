@@ -27,12 +27,12 @@ class MapContainer extends Component {
 
   render() {
     const style = {
-      width: '60rem',
-      height: '45rem'
+      width: '40rem',
+      height: '30rem',
     }
 
     return (
-      <div ref="map" style={style}>
+      <div ref="map" style={style} class="map" className="test">
           <Map google={this.props.google.div} />
       </div>
     );

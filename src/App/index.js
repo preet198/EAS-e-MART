@@ -26,6 +26,7 @@ class App extends Component {
               <Link to="/login">LogIn</Link>
               <br></br>
               <Link to="/items">All Items</Link>
+
             </nav>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />
