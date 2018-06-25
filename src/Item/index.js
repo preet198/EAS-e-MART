@@ -13,12 +13,11 @@ class Items extends Component {
         </div>
         <div className="Items-details">
           <h2><Link to={`/items/${this.props.id}`}>
-          {console.log(this.props.id)}
+          {console.log('item/index.js lising all item id:', this.props.id)}
           {this.props.name}</Link></h2>
           <p>Price: {this.props.price}</p>
         </div>
       </div>
-
     );
   }
 }

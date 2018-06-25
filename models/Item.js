@@ -14,7 +14,7 @@ Items.create = newItem=> {
 };
 
 Items.update = updatedItem => {
-  return db.none("UPDATE items SET user_name_id = ${user_name_id}, category_id = ${category_id}, name = ${name}, description = ${description}, price = ${price}, condition = ${condition}, quantity = ${quantity}, image_url = ${image_url} WHERE id = ${id}", updatedItem);
+  return db.none("UPDATE items SET user_name_id = ${user_name_id}, category_id = ${category_id}, name = ${name}, description = ${description}, price = ${price}, condition = ${condition}, quantity = ${quantity}, img_url = ${img_url} WHERE id = ${id}", updatedItem);
 };
 
 Items.delete = id => {
