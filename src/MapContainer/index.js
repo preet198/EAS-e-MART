@@ -1,33 +1,59 @@
 import React, { Component } from "react";
 import {Map} from 'google-maps-react';
 import ReactDOM from "react-dom";
+import Item from '../Item';
+
 import "./style.css";
 
 class MapContainer extends Component {
 
-  componentDidUpdate = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: 0,
+    };
+  }
+
+  componentDidUpdate() {
     this.loadMap();
   }
 
   loadMap() {
     if (this.props && this.props.google) {
+      console.log(this.props.lat);
+
       const {google} = this.props;
       const maps = google.maps;
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
+      let zoom = 15;
+      let lat = parseFloat(this.props.lat);
+      let lng = parseFloat(this.props.lng);
+
+      const center = new maps.LatLng(lat, lng);
+
       const mapConfig = Object.assign({}, {
-        center: {lat: 40.757944, lng: -73.985556},
-        zoom: 15
+        center: center,
+        zoom: zoom
       });
 
-      this.map = new maps.Map(node, mapConfig);
-    }
-  }
+
+    this.map = new maps.Map(node, mapConfig);
+
+
+      const marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position: { lat: lat , lng: lng},
+        map: this.map,
+      });
+
+      }
+}
 
   render() {
     const style = {
-      width: '40rem',
+      width: '30rem',
       height: '30rem',
     }
 
