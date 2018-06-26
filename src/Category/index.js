@@ -8,7 +8,7 @@ class Categories extends Component {
       <div className="Categories">
         <div className="image-wrapper">
           <Link to={`/categories/items/${this.props.id}.json`}>
-            <img src={this.props.img_url} /></Link>
+            <img src={this.props.img_url} alt='pictuer of Category'/></Link>
         </div>
         <div className="Categories-details">
           <h3><Link to={`/categories/items/${this.props.id}.json`}>

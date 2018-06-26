@@ -83,7 +83,6 @@ app.post("/login", (request, response) => {
 
 app.post('/item/create.json', (request, response) => {
   const userId = request.session.userId
-  console.log('request:', request.session);
   const newItem = {
     user_name_id: userId,
     name: request.body.name,
@@ -204,19 +203,17 @@ app.get('/categories/items/:id.json', (request, response) => {
 
 //User server calls
 
-app.get('/users/:id.json', (request, response) => {
-  Users.find(request.params.id)
-    .then(data => {
-      response.json(data);
-    });
-});
 
-app.get('/user/items/:id.json', (request, response) => {
-  Items.findByUserId(request.params.id)
+app.get('/user/item.json', (request, response) => {
+  const user_name_id = request.session.userId
+  console.log('loggingggggg:',request.session);
+  Items.findByUserId(user_name_id )
     .then(item => {
       response.json(item);
     });
 });
+
+
 
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.

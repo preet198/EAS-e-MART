@@ -20,7 +20,7 @@ class App extends Component {
       <Router>
         <div>
           <div className="App">
-            <img src="https://farm2.staticflickr.com/1810/42939870751_33b6a555e2_b.jpg" className="logo" />
+            <img src="https://farm2.staticflickr.com/1810/42939870751_33b6a555e2_b.jpg" className="logo" alt='Logo' />
             <nav>
               <Link to="/">🏠</Link>
               <br></br>
@@ -30,7 +30,7 @@ class App extends Component {
               <br></br>
               <Link to="/item/create">Create Item</Link>
               <br></br>
-              <Link to={`/user/items/${this.props.id}`}>My Postings</Link>
+              <Link to={`/user/item`}>My Postings</Link>
             </nav>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />
@@ -39,7 +39,7 @@ class App extends Component {
             <Route path="/item/update/:id" exact component={UpdateItem} />
             <Route path="/items/:id" exact component={ItemsPage} />
             <Route path="/categories/items/:id" exact component={CategoryItem} />
-            <Route path="/user/items/:id" exact component={UserItems} />
+            <Route path="/user/item" exact component={UserItems} />
           </div>
         </div>
       </Router>

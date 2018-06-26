@@ -14,7 +14,7 @@ Items.findByCatId = category_id => {
 };
 
 Items.findByUserId = user_name_id => {
-  return db.any("select * from items where user_name_id = ${user_name_id}", { user_name_id: user_name_id });
+  return db.any("select * from items where user_name_id = $1", [user_name_id]);
 };
 
 Items.create = newItem=> {

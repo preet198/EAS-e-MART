@@ -6,7 +6,7 @@ import MapContainer from "../MapContainer";
 import "./style.css";
 import LoginPage from "../LoginPage";
 
-class CategoryItem extends Component {
+class UserItems extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,11 +15,16 @@ class CategoryItem extends Component {
   }
 
   componentDidMount() {
-  let id = this.state.items;
-    console.log(id);
-    fetch(`/user/items/${id}.json`)
-      .then(response => response.json())
+    fetch(`/user/item.json`, {
+      method: "GET",
+      credentials: 'include',
+      body: JSON.stringify(),
+      headers: {
+        "Content-type": "application/json"
+      }
+    }).then(response => response.json())
       .then(items => {
+        console.log('state set to update');
         this.setState({
           items: items
         });
@@ -28,8 +33,8 @@ class CategoryItem extends Component {
 
   render() {
     return (
-      <div className="Items">
-        <div className="item-details">
+      <div className="UserItem">
+        <div className="item-detail">
           {this.state.items.map((item, i) => {
             console.log(item)
             return <Item
@@ -46,9 +51,9 @@ class CategoryItem extends Component {
             />
           })}
         </div>
-        <div className="item-map">
+        {/* <div className="item-map">
           <MapContainer google={this.props.google} />
-        </div>
+        </div> */}
       </div>
     );
   }
@@ -56,4 +61,4 @@ class CategoryItem extends Component {
 
 export default GoogleApiWrapper({
   apiKey: ('AIzaSyCeTdCRweKINV2rVaMeM8LSSFMewLhUAXI')
-})(CategoryItem)
+})(UserItems)
