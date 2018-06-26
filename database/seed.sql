@@ -19,6 +19,7 @@ VALUES
 INSERT INTO users
 (username, password_digest, phone_number, email, location, first_name, last_name, latitude, longitude)
 VALUES
+
 ('j_doe','password','347-567-9012','john.doe@gmail.com','New York City','John','Doe',40.758850,-73.985142),
 ('ssmith','password1','646-345-6512','sam.smith@gmail.com','Paris','Sam','Smith',48.860446,2.344790),
 ('jane_f','password2','44-3324-6233','jane.fonda@gmail.com','London','Jane','Fonda',51.507423,-0.127681),

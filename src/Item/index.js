@@ -11,7 +11,7 @@ class Item extends Component {
         <div className="image-wrapper">
         {/* image of the item link to item page*/}
         <Link to={`/items/${this.props.id}`}>
-          <img className="item-page-image" src={this.props.img_url} /></Link>
+          <img className="item-page-image" src={this.props.img_url} alt='pictuer of item'/></Link>
         </div>
         <div className="Items-details">
           <h3><Link to={`/items/${this.props.id}`}>

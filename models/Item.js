@@ -9,6 +9,14 @@ Items.find = id => {
   return db.one("SELECT * FROM items WHERE id = ${id} ORDER BY ID ASC", { id: id });
 };
 
+Items.findByCatId = category_id => {
+  return db.any("select * from items where category_id = ${category_id}", { category_id: category_id });
+};
+
+Items.findByUserId = user_name_id => {
+  return db.any("select * from items where user_name_id = $1", [user_name_id]);
+};
+
 Items.create = newItem=> {
   return db.one("INSERT INTO items (user_name_id, category_id, name, description, price, condition, quantity, img_url) VALUES (${user_name_id}, ${category_id}, ${name}, ${description}, ${price}, ${condition}, ${quantity}, ${img_url}) RETURNING *", newItem);
 };

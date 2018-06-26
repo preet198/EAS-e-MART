@@ -1,4 +1,3 @@
-
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
@@ -50,7 +49,9 @@ app.post("/register", (request, response) => {
     .then(user => {
       request.session.loggedIn = true;
       request.session.userId = user.id;
-      response.json({ user });
+      response.json({
+        user
+      });
     });
 });
 
@@ -66,7 +67,9 @@ app.post("/login", (request, response) => {
 
           return response.json({
             loggedIn: true,
-            user: { user }
+            user: {
+              user
+            }
           })
         } else {
           response.json({
@@ -80,7 +83,6 @@ app.post("/login", (request, response) => {
 
 app.post('/item/create.json', (request, response) => {
   const userId = request.session.userId
-  console.log('request:', request.session);
   const newItem = {
     user_name_id: userId,
     name: request.body.name,
@@ -109,11 +111,11 @@ app.get('/items/:id.json', (request, response) => {
     .then(item => {
       Categories.find(item.category_id).then(category => {
         User.find(item.user_name_id).then(user => {
-        const dataForTemplate = {};
-        dataForTemplate['item'] = item;
-        dataForTemplate['category'] = category;
-        dataForTemplate['user'] = user;
-        response.json(dataForTemplate);
+          const dataForTemplate = {};
+          dataForTemplate['item'] = item;
+          dataForTemplate['category'] = category;
+          dataForTemplate['user'] = user;
+          response.json(dataForTemplate);
         });
       });
     });
@@ -121,6 +123,21 @@ app.get('/items/:id.json', (request, response) => {
 
 app.get('/item/update/:id.json', (request, response) => {
   Items.find(request.params.id)
+    .then(item => {
+      Categories.find(item.category_id).then(category => {
+        User.find(item.user_name_id).then(user => {
+          const dataForTemplate = {};
+          dataForTemplate['item'] = item;
+          dataForTemplate['category'] = category;
+          dataForTemplate['user'] = user;
+          response.json(dataForTemplate);
+        });
+      });
+    });
+});
+
+app.get('/category/items/:id.json', (request, response) => {
+  Items.findByUserId(request.params.id)
     .then(item => {
       Categories.find(item.category_id).then(category => {
         User.find(item.user_name_id).then(user => {
@@ -177,14 +194,25 @@ app.get('/categories/:id.json', (request, response) => {
     });
 });
 
-//User server calls
-
-app.get('/users/:id.json', (request, response) => {
-  Users.find(request.params.id)
-    .then(data => {
-      response.json(data);
+app.get('/categories/items/:id.json', (request, response) => {
+  Items.findByCatId(request.params.id)
+    .then(item => {
+      response.json(item);
     });
 });
+
+//User server calls
+
+
+app.get('/user/item.json', (request, response) => {
+  const user_name_id = request.session.userId
+  console.log('loggingggggg:',request.session);
+  Items.findByUserId(user_name_id )
+    .then(item => {
+      response.json(item);
+    });
+});
+
 
 
 // In production, any request that doesn't match a previous route

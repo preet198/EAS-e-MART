@@ -84,7 +84,7 @@ class ItemsPage extends Component {
   render() {
     let id = this.props.match.params.id;
     console.log(id);
-    if (this.state.deleted == true) {
+    if (this.state.deleted === true) {
       console.log(this.state);
       return <Redirect to={"/items"} />
     }
@@ -104,9 +104,9 @@ class ItemsPage extends Component {
           <p>{this.state.description}</p>
           <p>Condition: {this.state.condition}</p>
           <p>Quantity: {this.state.quantity}</p>
-          <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" className="icon" />: {this.state.user_name_id}</p>
-          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" className="icon" />: {this.state.userEmail}</p>
-          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" />: {this.state.userPhone}</p>
+          <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" className="icon" alt='user icon'/>: {this.state.user_name_id}</p>
+          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" className="icon" alt='mail icon'/>: {this.state.userEmail}</p>
+          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" alt='phone icon'/>: {this.state.userPhone}</p>
           <div className="update-delete">
           <Link to={`/item/update/${id}`}><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/File-Edit-icon.png" className="update-icon" alt="update item"/></Link>
           {/* <Router>
