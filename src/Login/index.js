@@ -46,8 +46,8 @@ class Login extends Component {
       <div className="Login">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <h2>Login</h2>
-          <p>Username <input type="text" name="username" value={this.state.username} /></p>
-          <p>Password <input type="text" name="password" value={this.state.password} /></p>
+          <p>Username <input type="text" name="username" value={this.state.username} required/></p>
+          <p>Password <input type="text" name="password" value={this.state.password} required /></p>
           <p><input type="submit" value="submit" /></p>
         </form>
       </div>
