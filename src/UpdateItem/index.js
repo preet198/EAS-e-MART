@@ -107,9 +107,6 @@ class UpdateItem extends Component {
 
     if (this.state.updated === true) {
       let id = this.props.match.params.id;
-      console.log('redirect to', id);
-      console.log('i fired to quick');
-
       return <Redirect to={`/items/${id}`} />;
     }
 

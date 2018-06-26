@@ -107,7 +107,6 @@ class ItemsPage extends Component {
           <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" className="icon" />: {this.state.user_name_id}</p>
           <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" className="icon" />: {this.state.userEmail}</p>
           <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" />: {this.state.userPhone}</p>
-
           <div className="update-delete">
           <Link to={`/item/update/${id}`}><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/File-Edit-icon.png" className="update-icon" alt="update item"/></Link>
           {/* <Router>
@@ -116,18 +115,14 @@ class ItemsPage extends Component {
             <Route path="/item/update/:id" exact component={UpdateItem} />
             </div>
           </Router> */}
-
           <form onClick={this.deleteOnClick}>
             <button><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/Delete-File-icon.png" className="delete-icon" alt="delete"/></button>
           </form>
           </div>
-
         </div>
-
         <div className="item-map">
           <MapContainer google={this.props.google} lat={this.state.userLatitude} lng={this.state.userLongitude} />
         </div>
-
       </div>
     );
   }

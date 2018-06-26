@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Map} from 'google-maps-react';
+import { Map } from 'google-maps-react';
 import ReactDOM from "react-dom";
 import Item from '../Item';
 
@@ -22,7 +22,7 @@ class MapContainer extends Component {
     if (this.props && this.props.google) {
       console.log(this.props.lat);
 
-      const {google} = this.props;
+      const { google } = this.props;
       const maps = google.maps;
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
@@ -40,10 +40,9 @@ class MapContainer extends Component {
       });
 
     this.map = new maps.Map(node, mapConfig);
-
       const marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
-        position: { lat: lat , lng: lng},
+        position: { lat: lat, lng: lng },
         map: this.map,
       });
       }
