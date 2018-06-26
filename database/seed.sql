@@ -15,20 +15,20 @@ VALUES
 -- 8  ('Clothes','http://icons.iconarchive.com/icons/babasse/old-school/128/user-icon.png');
 
 
-
+-- Password for all accounts is password
 INSERT INTO users
 (username, password_digest, phone_number, email, location, first_name, last_name, latitude, longitude)
 VALUES
 
-('j_doe','password','347-567-9012','john.doe@gmail.com','New York City','John','Doe',40.758850,-73.985142),
-('ssmith','password1','646-345-6512','sam.smith@gmail.com','Paris','Sam','Smith',48.860446,2.344790),
-('jane_f','password2','44-3324-6233','jane.fonda@gmail.com','London','Jane','Fonda',51.507423,-0.127681),
-('javi_agraz','password3','23-1124-7542','j.agraz@gmail.com','Madrid','Javier','Agraz',40.416825,-3.703770),
-('vkrotek6','password4','12-6233-2-432','vkr0tek@gmail.com','Prague','Vaclav','Krotek',50.086102,14.414399),
-('tom_job1m','password5','55-3521-345','garotaIpanema@gmail.com','Rio de Janeiro','Tom','Jobim',-22.908947,-43.180216),
-('toyoko_k1','password6','2-1726-33-32','toyoko_k@gmail.com','Kyoto','Toyoko','Kawasaki',34.984896,135.758406),
-('zaki_amer','password7','75-726-11-02','zaki.amer@gmail.com','Cairo','Zaki','Amer',30.044387,31.235726),
-('n.minogue','password8','5-336-1165-02','n_minogue3@gmail.com','Sydney','Natalie','Minogue',-33.866347,151.207243);
+('j_doe','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','347-567-9012','john.doe@gmail.com','New York City','John','Doe',40.758850,-73.985142),
+('ssmith','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','646-345-6512','sam.smith@gmail.com','Paris','Sam','Smith',48.860446,2.344790),
+('jane_f','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','44-3324-6233','jane.fonda@gmail.com','London','Jane','Fonda',51.507423,-0.127681),
+('javi_agraz','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','23-1124-7542','j.agraz@gmail.com','Madrid','Javier','Agraz',40.416825,-3.703770),
+('vkrotek6','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','12-6233-2-432','vkr0tek@gmail.com','Prague','Vaclav','Krotek',50.086102,14.414399),
+('tom_job1m','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','55-3521-345','garotaIpanema@gmail.com','Rio de Janeiro','Tom','Jobim',-22.908947,-43.180216),
+('toyoko_k1','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','2-1726-33-32','toyoko_k@gmail.com','Kyoto','Toyoko','Kawasaki',34.984896,135.758406),
+('zaki_amer','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','75-726-11-02','zaki.amer@gmail.com','Cairo','Zaki','Amer',30.044387,31.235726),
+('n.minogue','$2a$12$D5eL4b0o7jfj6j0n3BBFlur.nbUeEXDUPQZ7t6TFXMNKOamYITPW.','5-336-1165-02','n_minogue3@gmail.com','Sydney','Natalie','Minogue',-33.866347,151.207243);
 
 
 INSERT INTO items
