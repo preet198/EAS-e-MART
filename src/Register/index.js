@@ -59,7 +59,7 @@ class Register extends Component {
     return (
       <div className="Register">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-          <h2>Register</h2>
+          <h3>Create An Account</h3>
           <p>Username <input type="text" name="username" value={this.state.username} /></p>
           <p>Password <input type="text" name="password" value={this.state.password} /></p>
           <p>Phone Number <input type="text" name="phone_number" value={this.state.phone_number} /></p>
@@ -69,7 +69,7 @@ class Register extends Component {
           <p>Last name <input type="text" name="last_name" value={this.state.last_name} /></p>
           <p>Latitude <input type="text" name="latitude" value={this.state.latitude} /></p>
           <p>Longitude <input type="text" name="longitude" value={this.state.longitude} /></p>
-          <p><input type="submit" value="submit" /></p>
+          <p><input type="submit" value="Join eas-E-mart" class="join-eas-e" /></p>
         </form>
       </div>
     );

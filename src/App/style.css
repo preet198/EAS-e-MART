@@ -36,6 +36,8 @@ a{
   width: 500px;
 }
 
+
+
 .Categories {
   display: flex;
   flex-direction: column;
@@ -74,7 +76,7 @@ nav {
   border: box;
   padding: 15px;
 }
-.home, .items, .create, .login {
+.home, .items, .create, .login, .my-postings, .sign-in, .join-eas-e {
     border: 1.3px solid red;
     padding: 6px;
     padding-left: 12px;
@@ -88,11 +90,63 @@ nav {
     text-shadow: 0 0 black;
 }
 
+.home:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+}
+
+.items:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+}
+
+.create:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+
+}
+
+.login:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+
+}
+
+.my-postings:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+
+}
+
+.sign-in:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+
+}
+
+.join-eas-e:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+
+}
+
 .login {
 }
 
 a {
   text-decoration: none;
+}
+
+.item-detail {
+  display: flex;
+  justify-content: space-between;
 }
 
 .item-details {
@@ -121,7 +175,19 @@ a {
 }
 
 .create-icon {
-  padding-left: 250px;
+  margin-left: 250px;
+}
+
+.create-icon:hover {
+  box-shadow:  5px 3px #999;
+}
+
+.update-icon:hover {
+  box-shadow:  5px 3px #999;
+}
+
+.delete-icon:hover {
+  box-shadow:  5px 3px #999;
 }
 
 button {
@@ -141,4 +207,9 @@ footer {
   border-top: 1.3px solid red;
   color: white;
   text-align: center;
+}
+
+.loginPage {
+  display: flex;
+  justify-content: space-around;
 }

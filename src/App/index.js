@@ -30,10 +30,10 @@ class App extends Component {
           </div>
 
             <nav>
-              <Link className="home" to="/">🏠</Link>
+              <Link className="home" to="/">Home</Link>
               <Link className="items" to="/items">All Items</Link>
               <Link className="create" to="/item/create">Create Item</Link>
-              <Link to={`/user/item`}>My Postings</Link>
+              <Link className="my-postings" to={`/user/item`}>My Postings</Link>
 
             </nav>
             <Route path="/" exact component={HomePage} />
@@ -46,7 +46,7 @@ class App extends Component {
             <Route path="/user/item" exact component={UserItems} />
           </div>
           <footer>
-          <h4>2018 ©</h4>
+          <h4>EAS => (Elyas/Andrey/Supreet)     2018 ©</h4>
           </footer>
         </div>
       </Router>

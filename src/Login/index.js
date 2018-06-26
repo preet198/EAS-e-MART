@@ -45,10 +45,10 @@ class Login extends Component {
     return (
       <div className="Login">
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-          <h2>Login</h2>
-          <p>Username <input type="text" name="username" value={this.state.username} required/></p>
-          <p>Password <input type="text" name="password" value={this.state.password} required /></p>
-          <p><input type="submit" value="submit" /></p>
+          <h3>Welcome Back</h3>
+          <p>Username <input type="text" name="username" value={this.state.username} /></p>
+          <p>Password <input type="text" name="password" value={this.state.password} /></p>
+          <p><input type="submit" value="Sign In" className="sign-in" /></p>
         </form>
       </div>
     );
