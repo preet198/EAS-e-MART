@@ -8,9 +8,10 @@ import Items from "../Items";
 import Item from "../Item";
 import Categories from "../Categories";
 import Category from "../Category";
+import CategoryItem from "../CategoryItem";
 import ItemsPage from "../ItemsPage";
 import UpdateItem from "../UpdateItem";
-
+import UserItems from "../UserItems";
 
 
 class App extends Component {
@@ -28,6 +29,8 @@ class App extends Component {
               <Link to="/items">All Items</Link>
               <br></br>
               <Link to="/item/create">Create Item</Link>
+              <br></br>
+              <Link to={`/user/items/${this.props.id}`}>My Postings</Link>
             </nav>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />
@@ -35,6 +38,8 @@ class App extends Component {
             <Route path="/item/create" exact component={Create} />
             <Route path="/item/update/:id" exact component={UpdateItem} />
             <Route path="/items/:id" exact component={ItemsPage} />
+            <Route path="/categories/items/:id" exact component={CategoryItem} />
+            <Route path="/user/items/:id" exact component={UserItems} />
           </div>
         </div>
       </Router>
