@@ -19,15 +19,20 @@ class App extends Component {
       <Router>
         <div>
           <div className="App">
-            <img src="https://farm2.staticflickr.com/1810/42939870751_33b6a555e2_b.jpg" className="logo" />
+
+          <div className="Logo">
+          <div>
+            <img src="https://farm2.staticflickr.com/1840/42965301002_e0f8ef2eaa_b.jpg" className="logo" /></div>
+            <div className="Login">
+            <Link to="/login" className="login">LogIn</Link>
+            </div>
+          </div>
+
             <nav>
-              <Link to="/">🏠</Link>
-              <br></br>
-              <Link to="/login">LogIn</Link>
-              <br></br>
-              <Link to="/items">All Items</Link>
-              <br></br>
-              <Link to="/item/create">Create Item</Link>
+              <Link className="home" to="/">🏠</Link>
+              <Link className="items" to="/items">All Items</Link>
+              <Link className="create" to="/item/create">Create Item</Link>
+
             </nav>
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />
@@ -36,6 +41,9 @@ class App extends Component {
             <Route path="/item/update/:id" exact component={UpdateItem} />
             <Route path="/items/:id" exact component={ItemsPage} />
           </div>
+          <footer>
+          <h4>2018 ©</h4>
+          </footer>
         </div>
       </Router>
     );

@@ -1,38 +1,144 @@
+body {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+}
+
 img {
-  width: 100px;
-  /* padding: 50px; */
+  width: 200px;
 }
 
 .icon {
   width: 30px;
 }
 
-h2 {
-  color: darkblue;
-}
-
-.logo {
-  width: 400px;
+a{
+  color: darkred;
+  /* text-shadow: 1px 1px black; */
+  /* text-shadow: 0.7px -0.7px black; */
 }
 
 .ItemsPage {
+  padding-top: 30px;
   display: flex;
-  /* grid-template-areas: */
-}
-
-.map {
+  justify-content: space-around;
+  overflow: auto;
+  max-height: 500px;
 }
 
 .Items {
   display: flex;
+  overflow: auto;
+  max-height: 500px;
 }
 
+.test {
+  width: 500px;
+}
 
 .Categories {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black; */
-  /* justify-content: space-between; */
   align-self: center;
+  justify-content: flex-end;
+  padding: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: auto;
+  max-height: 500px;
 }
 
+.category-details {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.item-page-image {
+  width: 200px;
+}
+
+.Logo {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 15%;
+  margin-left: 54%;
+}
+
+nav {
+  border-bottom: 1.3px solid red;
+  border: box;
+  padding: 15px;
+}
+.home, .items, .create, .login {
+    border: 1.3px solid red;
+    padding: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-left: 19px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    text-shadow: 0 0 black;
+}
+
+.login {
+}
+
+a {
+  text-decoration: none;
+}
+
+.item-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 50px;
+  margin-top: 35px;
+}
+
+.Item {
+  margin: 50px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+.update-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.update-icon, .delete-icon, .create-icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+.create-icon {
+  padding-left: 250px;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+.createItem, .updateItem {
+  line-height: 2;
+  margin-left: 50px;
+  height: 500px;
+}
+
+footer {
+  height: 50px;
+  background-color: darkred;
+  border-top: 1.3px solid red;
+  color: white;
+  text-align: center;
+}

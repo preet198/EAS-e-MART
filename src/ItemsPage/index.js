@@ -54,6 +54,8 @@ class ItemsPage extends Component {
           userPhone: item.user.phone_number,
           userLongitude: item.user.longitude,
           userLatitude: item.user.latitude,
+          userFirstName: item.user.first_name,
+          userLastName: item.user.last,
           deleted: this.state.deleted,
         });
       });
@@ -99,14 +101,15 @@ class ItemsPage extends Component {
             quantity={this.state.quantity}
             img_url={this.state.img_url}
           />
-          <p>Description: {this.state.description}</p>
+          <p>{this.state.description}</p>
           <p>Condition: {this.state.condition}</p>
           <p>Quantity: {this.state.quantity}</p>
           <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" className="icon" />: {this.state.user_name_id}</p>
           <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" className="icon" />: {this.state.userEmail}</p>
           <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" />: {this.state.userPhone}</p>
-          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Maps-icon.png" className="icon" />: {this.state.userLongitude}, {this.state.userLatitude}</p>
-          <Link to={`/item/update/${id}`}>Update This Item</Link>
+
+          <div className="update-delete">
+          <Link to={`/item/update/${id}`}><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/File-Edit-icon.png" className="update-icon" alt="update item"/></Link>
           {/* <Router>
             <div>
 
@@ -115,11 +118,10 @@ class ItemsPage extends Component {
           </Router> */}
 
           <form onClick={this.deleteOnClick}>
-            <button> Delete This Item </button>
+            <button><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/Delete-File-icon.png" className="delete-icon" alt="delete"/></button>
           </form>
+          </div>
 
-
-          {/* <p>Category: {this.state.category_id}</p> */}
         </div>
 
         <div className="item-map">

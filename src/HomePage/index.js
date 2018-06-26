@@ -9,9 +9,7 @@ class HomePage extends Component {
       <div className="HomePage">
         <div className="container">
           <div className="grid">
-            <h2>Categories</h2>
             <Categories />
-
           </div>
         </div>
       </div>

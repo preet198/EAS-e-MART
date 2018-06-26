@@ -27,6 +27,7 @@ class Items extends Component {
     return (
       <div className="Items">
         <div className="item-details">
+
           {this.state.items.map((item, i) => {
             console.log(item)
             return <Item
@@ -41,14 +42,10 @@ class Items extends Component {
             />
           })}
         </div>
-        <div className="item-map">
-          <MapContainer google={this.props.google} lat={this.state.userLatitude} lng={this.state.userLongitude} />
-        </div>
+
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ('AIzaSyCeTdCRweKINV2rVaMeM8LSSFMewLhUAXI')
-})(Items)
+export default Items;
