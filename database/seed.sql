@@ -1,5 +1,5 @@
 
-\c eas_e_mart;
+-- \c eas_e_mart;
 
 
 INSERT INTO categories
