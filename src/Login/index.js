@@ -34,7 +34,6 @@ class Login extends Component {
       },
       /* Necessary to pass the session cookie along with the request */
       credentials: "same-origin"
-
     })
       .then(response => response.json())
       .then(user => {

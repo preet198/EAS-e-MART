@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {GoogleApiWrapper} from 'google-maps-react';
 import Item from '../Item';
 import MapContainer from "../MapContainer";
@@ -26,6 +27,7 @@ class Items extends Component {
     return (
       <div className="Items">
         <div className="item-details">
+
           {this.state.items.map((item, i) => {
             console.log(item)
             return <Item
@@ -40,14 +42,10 @@ class Items extends Component {
             />
           })}
         </div>
-        <div className="item-map">
-          <MapContainer google={this.props.google} />
-        </div>
+
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ('AIzaSyCeTdCRweKINV2rVaMeM8LSSFMewLhUAXI')
-})(Items)
+export default Items;
