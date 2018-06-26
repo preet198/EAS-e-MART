@@ -107,25 +107,13 @@ class ItemsPage extends Component {
           <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" />: {this.state.userPhone}</p>
           <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Maps-icon.png" className="icon" />: {this.state.userLongitude}, {this.state.userLatitude}</p>
           <Link to={`/item/update/${id}`}>Update This Item</Link>
-          {/* <Router>
-            <div>
-
-            <Route path="/item/update/:id" exact component={UpdateItem} />
-            </div>
-          </Router> */}
-
           <form onClick={this.deleteOnClick}>
             <button> Delete This Item </button>
           </form>
-
-
-          {/* <p>Category: {this.state.category_id}</p> */}
         </div>
-
         <div className="item-map">
           <MapContainer google={this.props.google} lat={this.state.userLatitude} lng={this.state.userLongitude} />
         </div>
-
       </div>
     );
   }

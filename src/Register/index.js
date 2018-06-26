@@ -41,7 +41,6 @@ class Register extends Component {
       longitude: this.state.longitude
     }
     fetch('/register', {
-
       method: 'POST',
       body: JSON.stringify(newUser),
       headers: {
@@ -49,7 +48,6 @@ class Register extends Component {
       },
       /* Necessary to pass the session cookie along with the request */
       credentials: "same-origin"
-
     })
       .then(response => response.json())
       .then(json => {
