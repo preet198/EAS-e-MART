@@ -112,6 +112,7 @@ class UpdateItem extends Component {
 
     return (
       <div className="updateItem">
+      <h3>Update Item</h3>
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <select name="category_id">
             {this.state.category.map((category, index) => {
@@ -125,7 +126,7 @@ class UpdateItem extends Component {
             })}
           </select>
           <p>
-            <label for="name">Name</label>
+            <label for="name">Item Name</label>
             <input
               type="text"
               name="name"
@@ -134,7 +135,7 @@ class UpdateItem extends Component {
             />
           </p>
           <p>
-            <label for="description">Description</label>
+            <label for="description">Item Description</label>
             <input
               type="text"
               name="description"
@@ -170,7 +171,7 @@ class UpdateItem extends Component {
             />
           </p>
           <p>
-            <label for="img_url">Image Url</label>
+            <label for="img_url">Image Link</label>
             <input
               type="text"
               name="img_url"

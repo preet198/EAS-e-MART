@@ -34,32 +34,29 @@ class MapContainer extends Component {
       const center = new maps.LatLng(lat, lng);
 
       const mapConfig = Object.assign({}, {
+        // center: {lat: 40.758850, lng: -73.985142},
         center: center,
         zoom: zoom
       });
 
-
-      this.map = new maps.Map(node, mapConfig);
-
-
+    this.map = new maps.Map(node, mapConfig);
       const marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
         position: { lat: lat, lng: lng },
         map: this.map,
       });
-
-    }
-  }
+      }
+}
 
   render() {
     const style = {
       width: '30rem',
-      height: '30rem',
+      height: '20rem',
     }
 
     return (
-      <div ref="map" style={style} class="map" className="test">
-        <Map google={this.props.google.div} />
+      <div ref="map" style={style} className="test">
+          <Map google={this.props.google.div} />
       </div>
     );
   }

@@ -13,7 +13,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL unique,
   password_digest VARCHAR NOT NULL,
-  phone_number VARCHAR(10) NOT NULL,
+  phone_number VARCHAR(15) NOT NULL,
   email TEXT NOT NULL,
   location TEXT NOT NULL,
   first_name TEXT NOT NULL,
