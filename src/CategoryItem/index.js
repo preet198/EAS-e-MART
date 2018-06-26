@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { GoogleApiWrapper } from 'google-maps-react';
 import Category from '../Category';
 import Item from '../Item';
-import MapContainer from "../MapContainer";
 import "./style.css";
 
 class CategoryItem extends Component {
@@ -44,14 +42,9 @@ class CategoryItem extends Component {
             />
           })}
         </div>
-        <div className="item-map">
-          <MapContainer google={this.props.google} />
-        </div>
       </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ('AIzaSyCeTdCRweKINV2rVaMeM8LSSFMewLhUAXI')
-})(CategoryItem)
+export default CategoryItem;
