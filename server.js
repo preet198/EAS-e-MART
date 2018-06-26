@@ -64,7 +64,6 @@ app.post("/login", (request, response) => {
           request.session.loggedIn = true;
           request.session.userId = user.id;
           console.log('session line', request.session);
-
           return response.json({
             loggedIn: true,
             user: {
