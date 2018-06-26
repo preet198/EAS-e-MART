@@ -24,9 +24,10 @@ class LoginPage extends Component {
     if (!this.state.userLoggedIn) {
       return (
         <div className="LoginPage">
-          <h1>EAS-E-MART</h1>
+          <div className="loginPage">
           <Login onUserLoggedIn={this.updateUserLoggedIn} />
           <Register onUserLoggedIn={this.updateUserLoggedIn} />
+          </div>
         </div>
       );
     }
