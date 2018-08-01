@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import {Map} from 'google-maps-react';
+import { Map } from 'google-maps-react';
 import ReactDOM from "react-dom";
 import Item from '../Item';
 
 import "./style.css";
 
-class Marker extends Component {
+class MapContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -19,43 +19,47 @@ class Marker extends Component {
   }
 
   loadMap() {
-    console.log(this.props);
-
     if (this.props && this.props.google) {
-      // const lat = this.props.latitude;
-      // const lng = this.props.longitude;
-      const {google} = this.props;
+      console.log(this.props.lat);
+
+      const { google } = this.props;
       const maps = google.maps;
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
       let zoom = 15;
-      let lat = this.props.lat;
-      let lng = this.props.lng;
+      let lat = parseFloat(this.props.lat);
+      let lng = parseFloat(this.props.lng);
 
       const center = new maps.LatLng(lat, lng);
 
       const mapConfig = Object.assign({}, {
+        // center: {lat: 40.758850, lng: -73.985142},
         center: center,
         zoom: zoom
       });
 
       this.map = new maps.Map(node, mapConfig);
+      const marker = new google.maps.Marker({
+        animation: google.maps.Animation.DROP,
+        position: { lat: lat, lng: lng },
+        map: this.map,
+      });
     }
   }
 
   render() {
     const style = {
-      width: '40rem',
-      height: '30rem',
+      width: '30rem',
+      height: '20rem',
     }
 
     return (
-      <div ref="map" style={style} class="map" className="test">
-          <Map google={this.props.google.div} />
+      <div ref="map" style={style} className="google-maps">
+        <Map google={this.props.google.div} />
       </div>
     );
   }
 }
 
-export default Marker;
+export default MapContainer;

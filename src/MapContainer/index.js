@@ -39,14 +39,14 @@ class MapContainer extends Component {
         zoom: zoom
       });
 
-    this.map = new maps.Map(node, mapConfig);
+      this.map = new maps.Map(node, mapConfig);
       const marker = new google.maps.Marker({
         animation: google.maps.Animation.DROP,
         position: { lat: lat, lng: lng },
         map: this.map,
       });
-      }
-}
+    }
+  }
 
   render() {
     const style = {
@@ -55,8 +55,8 @@ class MapContainer extends Component {
     }
 
     return (
-      <div ref="map" style={style} className="test">
-          <Map google={this.props.google.div} />
+      <div ref="map" style={style} className="google-maps">
+        <Map google={this.props.google.div} />
       </div>
     );
   }
