@@ -5,17 +5,15 @@ body {
 }
 
 img {
-  width: 200px;
+  width: 15em;
 }
 
 .icon {
   width: 30px;
 }
 
-a{
+a {
   color: darkred;
-  /* text-shadow: 1px 1px black; */
-  /* text-shadow: 0.7px -0.7px black; */
 }
 
 .ItemsPage {
@@ -23,20 +21,18 @@ a{
   display: flex;
   justify-content: space-around;
   overflow: auto;
-  max-height: 80vh;
+  max-height: 473px;
 }
 
 .Items {
   display: flex;
   overflow: auto;
-  max-height: 80vh;
+  max-height: 503px;
 }
 
 .test {
   width: 500px;
 }
-
-
 
 .Categories {
   display: flex;
@@ -47,7 +43,7 @@ a{
   padding-top: 10px;
   padding-bottom: 10px;
   overflow: auto;
-  max-height: 80vh;
+  max-height: 483px;
 }
 
 .category-details {
@@ -57,37 +53,47 @@ a{
 }
 
 .item-page-image {
-  width: 200px;
+  width: 15em;
 }
 
-.Logo {
-  padding: 10px;
+.logo {
+  width: 45%;
+  transform: translate(0px, 10px);
+}
+
+.individual-image {
+  width: 30em;
+  margin-bottom: 10px;
+}
+
+.header {
   display: flex;
   justify-content: space-between;
 }
 
-.logo {
-  width: 20%;
-  margin-left: 69%;
+.empty-div {
+  width: 29%;
 }
 
 nav {
-  border-bottom: 1.3px solid red;
   border: box;
   padding: 15px;
+  align-self: flex-end;
+  border-bottom: 1.3px solid red;
 }
+
 .home, .items, .create, .login, .my-postings, .sign-in, .join-eas-e {
-    border: 1.3px solid red;
-    padding: 6px;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-left: 19px;
-    border-radius: 4px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-    background-color: white;
-    text-shadow: 0 0 black;
+  border: 1.3px solid red;
+  padding: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: 19px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  background-color: white;
+  text-shadow: 0 0 black;
 }
 
 .home:hover {
@@ -127,28 +133,25 @@ nav {
   background-color: darkred;
   color: white;
   box-shadow:  5px 3px #999;
-
 }
 
 .join-eas-e:hover {
   background-color: darkred;
   color: white;
   box-shadow:  5px 3px #999;
-
-}
-
-.login {
 }
 
 a {
   text-decoration: none;
 }
 
+h3 {
+  color: darkred;
+}
+
 .item-detail {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 50px;
+  justify-content: space-between;
 }
 
 .item-details {
@@ -200,7 +203,7 @@ button {
 .createItem, .updateItem {
   line-height: 2;
   margin-left: 50px;
-  height: 500px;
+  height: 486px;
 }
 
 footer {
@@ -213,5 +216,109 @@ footer {
 
 .loginPage {
   display: flex;
+  justify-content: space-evenly;
+  height: 503px;
+}
+
+.seller-details {
+  border: 1.3px solid red;
+  font-size: 14px;
+  padding: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  /* margin-left: 19px; */
+  border-radius: 4px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  background-color: white;
+  text-shadow: 0 0 black;
+}
+
+.seller-details:hover {
+  background-color: darkred;
+  color: white;
+  box-shadow:  5px 3px #999;
+}
+
+.img_map {
+  display: flex;
   justify-content: space-around;
+}
+
+.popup-content {
+  max-width: 30%;
+  border: 15.3px solid red;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-name {
+  color: darkred;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.footer-name:hover {
+  color: white;
+  background-color: darkred;
+}
+
+@media (max-width: 640px) {
+  nav {
+    margin-top: 2%;
+  }
+.home, .items, .create, .login, .my-postings, .sign-in, .join-eas-e {
+  padding: 3px;
+  font-size: 13px;
+  margin-left: 3px;
+}
+  .img_map {
+    flex-direction: column-reverse;
+    /* width: 5px; */
+    }
+  .individual-image {
+    width: 300px;
+  }
+  .ItemsPage {
+    justify-content: center;
+    /* width: 50%; */
+  }
+  .description {
+    padding-left: 14%;
+    text-align: justify;
+    text-justify: inter-word;
+    width: 70%;
+  }
+  .details {
+    padding-left: 20%;
+    padding-top: 20px;
+  }
+  .seller-details {
+    margin-left: 15%;
+  }
+  .popup-content {
+    max-width: 50%;
+  }
+  footer {
+    font-size: 10px;
+  }
+  .logo {
+    padding-left: 25%;
+  }
+  .update-delete {
+    padding-right: 15%;
+  }
+  .item-page-image {
+    width: 10em;
+  }
+  img {
+    width: 10em;
+  }
+  .Login, .Register {
+    font-size: 10px;
+  }
 }

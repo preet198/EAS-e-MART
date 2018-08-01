@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import {GoogleApiWrapper} from 'google-maps-react';
+import { GoogleApiWrapper } from 'google-maps-react';
 import MapContainer from "../MapContainer";
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import Items from '../Items';
 import UpdateItem from '../UpdateItem';
 import Item from '../Item';
+import Popup from "reactjs-popup";
 
 import "./style.css";
 
@@ -83,45 +84,49 @@ class ItemsPage extends Component {
 
   render() {
     let id = this.props.match.params.id;
-    console.log(id);
     if (this.state.deleted === true) {
-      console.log(this.state);
       return <Redirect to={"/items"} />
     }
     return (
       <div className="ItemsPage">
         <div className="Item">
-          <Item
-            user_name_id={this.state.user_name_id}
-            category_id={this.state.category_id}
-            name={this.state.name}
-            description={this.state.description}
-            price={this.state.price}
-            condition={this.state.condition}
-            quantity={this.state.quantity}
-            img_url={this.state.img_url}
-          />
-          <p>{this.state.description}</p>
-          <p>Condition: {this.state.condition}</p>
-          <p>Quantity: {this.state.quantity}</p>
-          <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" className="icon" alt='user icon'/>: {this.state.user_name_id}</p>
-          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" className="icon" alt='mail icon'/>: {this.state.userEmail}</p>
-          <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" alt='phone icon'/>: {this.state.userPhone}</p>
-          <div className="update-delete">
-          <Link to={`/item/update/${id}`}><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/File-Edit-icon.png" className="update-icon" alt="update item"/></Link>
-          {/* <Router>
-            <div>
-
-            <Route path="/item/update/:id" exact component={UpdateItem} />
+          <div className="img_map">
+            <div className="details">
+              <img src={this.state.img_url} alt="image" className="individual-image" />
+              <h3>{this.state.name}</h3>
+              <h4>${this.state.price}</h4>
+              <p>Condition: {this.state.condition}</p>
+              <p>Quantity: {this.state.quantity}</p>
             </div>
-          </Router> */}
-          <form onClick={this.deleteOnClick}>
-            <button><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/Delete-File-icon.png" className="delete-icon" alt="delete"/></button>
-          </form>
+            <div className="item-map">
+              <MapContainer google={this.props.google} lat={this.state.userLatitude} lng={this.state.userLongitude} />
+            </div>
           </div>
-        </div>
-        <div className="item-map">
-          <MapContainer google={this.props.google} lat={this.state.userLatitude} lng={this.state.userLongitude} />
+
+          <p className="description">{this.state.description}</p>
+
+          <Popup trigger={<button className="seller-details"> Seller Details </button>} modal>
+            {close => (
+              <div className="modal">
+                <a className="close" onClick={close}>
+                  &times;
+              </a>
+                <div className="content">
+                  <p><img src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-4/128/User-blue-icon.png" className="icon" alt='user icon' />: {this.state.user_name_id}</p>
+                  <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/256/Mail-icon.png" className="icon" alt='mail icon' />: {this.state.userEmail}</p>
+                  <p><img src="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/128/Phone-icon.png" className="icon" alt='phone icon' />: {this.state.userPhone}</p>
+                  <br />
+                </div>
+              </div>
+            )}
+          </Popup>
+          <div className="update-delete">
+            <Link to={`/item/update/${id}`}><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/File-Edit-icon.png" className="update-icon" alt="update item" /></Link>
+            <form onClick={this.deleteOnClick}>
+              <button><img src="http://icons.iconarchive.com/icons/iconsmind/outline/256/Delete-File-icon.png" className="delete-icon" alt="delete" /></button>
+            </form>
+
+          </div>
         </div>
       </div>
     );

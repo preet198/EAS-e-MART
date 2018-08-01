@@ -12,6 +12,7 @@ import CategoryItem from "../CategoryItem";
 import ItemsPage from "../ItemsPage";
 import UpdateItem from "../UpdateItem";
 import UserItems from "../UserItems";
+import logo from "../logo.png";
 
 
 class App extends Component {
@@ -21,21 +22,24 @@ class App extends Component {
         <div>
           <div className="App">
 
-          <div className="Logo">
-          <div>
-            <img src="https://farm2.staticflickr.com/1840/42965301002_e0f8ef2eaa_b.jpg" className="logo" /></div>
-            <div className="Login">
-            <Link to="/login" className="login">LogIn</Link>
+            <div className="header">
+              <div className="empty-div">
+              </div>
+              <div>
+                <img src={logo} alt="logo" className="logo" />
+              </div>
+              <div className="Login">
+                <Link to="/login" className="login">LogIn</Link>
+              </div>
             </div>
-          </div>
-
             <nav>
               <Link className="home" to="/">Home</Link>
               <Link className="items" to="/items">All Items</Link>
               <Link className="create" to="/item/create">Create Item</Link>
               <Link className="my-postings" to={`/user/item`}>My Postings</Link>
-
             </nav>
+
+
             <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginPage} />
             <Route path="/items" exact component={Items} />
@@ -46,7 +50,7 @@ class App extends Component {
             <Route path="/user/item" exact component={UserItems} />
           </div>
           <footer>
-          <h4>EAS => (Elyas/Andrey/Supreet)     2018 ©</h4>
+            <h4>EAS => ( <a href="https://www.linkedin.com/in/elyas-sow/" className="footer-name">Elyas</a> [0].concat ( <a href="https://www.linkedin.com/in/andrey-pykhantsev/" className="footer-name">Andrey</a> [0].concat( <a href="https://www.linkedin.com/in/preet-s-singh/" className="footer-name">Supreet</a> [0]))         2018 ©</h4>
           </footer>
         </div>
       </Router>
